@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matthew Thomas Portfolio</title>
+<meta name="description" content="Matthew Thomas: technology consultant building AI pipelines, automation and operational data tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F5F6F3; --card:#FFFFFF; --ink:#14171A; --ink-2:#3A4046; --muted:#646B71; --rule:#DCDFD8;
+  --accent:#0D6963; --accent-ink:#FFFFFF; --accent-soft:#E0EEEC; --chip:#ECEEE9; --good:#2F7D46;
+  --display:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#111416; --card:#181C1F; --ink:#ECEFEC; --ink-2:#C4CAC8; --muted:#979FA3; --rule:#2A3034;
+    --accent:#5CC2B8; --accent-ink:#0B1413; --accent-soft:#15302D; --chip:#21272A; --good:#6CC488;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#111416; --card:#181C1F; --ink:#ECEFEC; --ink-2:#C4CAC8; --muted:#979FA3; --rule:#2A3034;
+  --accent:#5CC2B8; --accent-ink:#0B1413; --accent-soft:#15302D; --chip:#21272A; --good:#6CC488;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);padding-inline:20px;padding-block:0 40px}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.12}
+p{margin:0}
+code{font:0.9em var(--mono);background:var(--chip);padding:1px 5px;border-radius:3px}
+.label{font:500 11.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);margin-inline:-20px;padding-inline:20px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.brand{font:700 16px/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px}
+.nav ul a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500}
+.nav ul a:hover{color:var(--accent)}
+@media (max-width:560px){.nav ul{gap:14px}.nav ul li.opt{display:none}}
+
+/* hero */
+.hero{padding-block:72px 56px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:48px;align-items:end;border-bottom:1px solid var(--rule)}
+.hero h1{font-size:clamp(40px,7vw,72px);font-weight:800;letter-spacing:-.035em}
+.hero .role{font:600 clamp(18px,2.4vw,22px)/1.3 var(--display);color:var(--accent);margin-top:14px;letter-spacing:-.01em}
+.hero .pitch{margin-top:18px;font-size:18px;color:var(--ink-2);max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--body);padding:12px 16px;border-radius:6px;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--card);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{border-color:var(--accent)}
+.facts{display:grid;gap:0;border-top:1px solid var(--rule)}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;text-align:right;font-weight:500}
+.facts dl{margin:0}
+.facts .live{color:var(--good)}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:32px;padding-block:48px 40px}}
+
+/* section scaffolding */
+section{padding-block:64px 8px;scroll-margin-top:64px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(26px,3.6vw,34px);font-weight:700;letter-spacing:-.02em}
+.sec-head p{color:var(--muted);font-size:15px;max-width:52ch}
+
+/* featured */
+.feature{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:0;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.feature + .feature{margin-top:20px}
+.f-main{padding:30px 32px;display:grid;gap:16px;align-content:start}
+.f-main .kicker{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tag{font:500 11.5px/1 var(--mono);letter-spacing:.04em;padding:5px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.when{font:12px/1 var(--mono);color:var(--muted)}
+.f-main h3{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em}
+.f-main .lede{font-size:17px;color:var(--ink-2);max-width:60ch}
+.f-main ul{margin:0;padding-left:18px;display:grid;gap:7px;font-size:15px;max-width:62ch}
+.f-main li::marker{color:var(--accent)}
+.decision{border-left:2px solid var(--accent);padding-left:14px;font-size:14.5px;color:var(--ink-2);max-width:62ch}
+.decision b{color:var(--ink)}
+.f-side{background:var(--chip);border-left:1px solid var(--rule);padding:30px 28px;display:grid;gap:22px;align-content:start}
+.metrics{display:grid;gap:16px}
+.metric b{display:block;font:600 26px/1.1 var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.metric span{font-size:13px;color:var(--muted);line-height:1.4}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:12px/1 var(--mono);background:var(--card);border:1px solid var(--rule);padding:5px 7px;border-radius:4px;color:var(--ink-2)}
+.links{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;font-weight:600}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline}
+.links .nolink{color:var(--muted);font-weight:500}
+@media (max-width:820px){
+  .feature{grid-template-columns:1fr}
+  .f-side{border-left:0;border-top:1px solid var(--rule)}
+  .metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:520px){.f-main,.f-side{padding:22px 20px}.metrics{grid-template-columns:1fr 1fr}}
+
+/* more work grid */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:24px;display:grid;gap:12px;grid-template-rows:auto auto 1fr auto auto}
+.card h3{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.card p{font-size:15px;color:var(--ink-2)}
+.card .kicker{display:flex;justify-content:space-between;gap:10px;align-items:center}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+/* experience */
+.xp{border-top:1px solid var(--rule)}
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding-block:24px;border-bottom:1px solid var(--rule)}
+.job .dates{font:13px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:19px;font-weight:700}
+.job .org{color:var(--ink-2);font-size:15px;margin-top:2px}
+.job ul{margin:10px 0 0;padding-left:18px;display:grid;gap:6px;font-size:15px;max-width:70ch}
+.job li::marker{color:var(--accent)}
+@media (max-width:640px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.skill{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:22px 24px;display:grid;gap:12px;align-content:start}
+.skill h3{font-size:17px;font-weight:700}
+@media (max-width:720px){.skills{grid-template-columns:1fr}}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.edu > div{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;display:grid;gap:6px;align-content:start}
+.edu b{font-family:var(--display);font-size:17px}
+.edu span{color:var(--ink-2);font-size:15px}
+@media (max-width:720px){.edu{grid-template-columns:1fr}}
+
+/* contact */
+.contact{margin-top:72px;background:var(--ink);color:var(--paper);border-radius:12px;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:center}
+.contact h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.02em}
+.contact p{margin-top:10px;opacity:.75;max-width:46ch}
+.contact .rows{display:grid;gap:10px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--paper) 22%,transparent);border-radius:8px;font-size:15px;flex-wrap:wrap}
+.crow a{color:var(--paper);font-weight:600;text-decoration:none;word-break:break-all}
+.crow a:hover{text-decoration:underline}
+.crow .k{font:11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.copy{font:600 12px/1 var(--body);background:transparent;color:var(--paper);border:1px solid color-mix(in srgb,var(--paper) 40%,transparent);border-radius:4px;padding:6px 10px;cursor:pointer}
+@media (max-width:760px){.contact{grid-template-columns:1fr;padding:32px 24px}}
+footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top">Matthew Thomas</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li class="opt"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+<header class="hero">
+  <div>
+    <h1>Matthew Thomas</h1>
+    <p class="role">Technology Consultant · AI &amp; Operational Data</p>
+    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I diagnose enterprise integration data with SQL and Python. On my own time I build AI systems and data infrastructure that run unattended: a crash-safe harness for AI coding agents, a telemetry pipeline that pages in 166 ms, and a 7,000-video LLM classifier.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See my projects</a>
+      <a class="btn" href="https://github.com/mattthomas7641" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="facts">
+    <dl>
+      <div><dt>Currently</dt><dd>Technology Consultant, Protiviti</dd></div>
+      <div><dt>Based in</dt><dd>Philadelphia, PA</dd></div>
+      <div><dt>Education</dt><dd>BBA, MIS, Temple (Fox) · 3.97</dd></div>
+      <div><dt>Certified</dt><dd>AWS Cloud Practitioner</dd></div>
+      <div><dt>In production</dt><dd class="live">11 projects · 8 public repos</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section id="work" aria-labelledby="work-h">
+  <div class="sec-head">
+    <h2 id="work-h">Selected work</h2>
+    <p>AI systems and data pipelines I scoped, built and tested, with measured results.</p>
+  </div>
+
+  <article class="feature">
+    <div class="f-main">
+      <div class="kicker"><span class="tag">AI agents · reliability</span><span class="when">Oct 2026</span></div>
+      <h3>Longrun</h3>
+      <p class="lede">A harness that lets an AI coding agent work for hours without being trusted. Kill it mid-run and it resumes from the last checkpoint. It fans work out to parallel subagents, and every action it takes is jailed, allow-listed and audited.</p>
+      <ul>
+        <li>Atomic checkpoints after every model turn and tool call, so a run killed at any instant finishes with the same result. CI proves this with a real <code>kill -9</code>.</li>
+        <li>Side effects run at most once: a tool interrupted mid-call is reported to the model as "outcome unknown", never silently replayed.</li>
+        <li>A sandbox that blocks path escapes (including symlinks), runs commands without a shell from an allow-list, strips API keys from the environment and enforces CPU, file and timeout limits.</li>
+        <li>A tamper-evident, hash-chained audit log, parallel subagent fan-out that also survives crashes, and an MCP server interface.</li>
+      </ul>
+      <p class="decision"><b>Key decision:</b> each guarantee has a test that tries to break it, such as crashing at every step or editing an audit record, instead of trusting the design on paper.</p>
+    </div>
+    <aside class="f-side">
+      <div class="metrics">
+        <div class="metric"><b>74</b><span>tests, <code>mypy --strict</code> clean</span></div>
+        <div class="metric"><b>92%</b><span>branch coverage</span></div>
+        <div class="metric"><b>1</b><span>dependency: the Anthropic SDK</span></div>
+      </div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">MCP</span><span class="chip">Subagents</span><span class="chip">Sandboxing</span><span class="chip">GitHub Actions</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/longrun" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </aside>
+  </article>
+
+  <article class="feature">
+    <div class="f-main">
+      <div class="kicker"><span class="tag">Data pipeline · cloud infrastructure</span><span class="when">Oct 2026</span></div>
+      <h3>Flightline</h3>
+      <p class="lede">A governed flight-test telemetry pipeline. It ingests high-rate sensor data from aircraft, classifies and tags every sample before it's stored, writes it to a partitioned S3 data lake, and pages on-call the moment a reading crosses a safety threshold.</p>
+      <ul>
+        <li>FastAPI ingest feeds Redis Streams sharded by aircraft. Writers produce Parquet partitioned by data classification, and an hourly compactor deduplicates and merges small files.</li>
+        <li>Governance at the door: classification, owner, retention and lineage are attached to every sample. Unknown channels are quarantined, and an S3 policy rejects any untagged write.</li>
+        <li>Alerting on event time, with sustain windows and hysteresis so a spike doesn't page and an alert doesn't flap. Escalations go to PagerDuty and Slack, and a watchdog pages when a flight goes silent.</li>
+        <li>Kubernetes manifests (HPA, KEDA scaling on stream lag) and Terraform for S3, KMS and IAM, with Prometheus and Grafana dashboards.</li>
+      </ul>
+      <p class="decision"><b>Key decision:</b> storage and paging read the stream separately, so alerts never wait on a slow write. Under storage saturation, pages still landed in 166 ms.</p>
+    </div>
+    <aside class="f-side">
+      <div class="metrics">
+        <div class="metric"><b>420k</b><span>samples/s ingested on a single core</span></div>
+        <div class="metric"><b>166 ms</b><span>mean ingest-to-page under storage saturation</span></div>
+        <div class="metric"><b>93%</b><span>branch coverage across 96 tests</span></div>
+      </div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Redis Streams</span><span class="chip">Parquet</span><span class="chip">AWS S3 · KMS · IAM</span><span class="chip">Kubernetes</span><span class="chip">KEDA</span><span class="chip">Terraform</span><span class="chip">Grafana</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/flightline" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/flightline/blob/main/docs/BENCHMARKS.md" target="_blank" rel="noopener">Benchmarks ↗</a></div>
+    </aside>
+  </article>
+
+  <article class="feature">
+    <div class="f-main">
+      <div class="kicker"><span class="tag">AI pipeline · full-stack</span><span class="when">Sep – Oct 2026</span></div>
+      <h3>TikTok Saved Scanner</h3>
+      <p class="lede">A self-hosted app that turns thousands of saved TikToks into a searchable library. It transcribes, reads on-screen text, categorizes and scores each video, and flags anything worth acting on.</p>
+      <ul>
+        <li>A six-stage pipeline: data export → yt-dlp download → on-device Whisper transcription → frame OCR → Claude structured analysis → staleness checks for promo codes and dated offers.</li>
+        <li>Cost engineering for bulk runs: parallel local collection with automatic backoff, Anthropic's Batch API at half price, a spending cap, and resume-from-anywhere.</li>
+        <li>Action detection that pulls skills, project ideas and job leads out of videos into a queue, exposed through token-scoped JSON API routes for a scheduled agent.</li>
+        <li>Engineering upgrades for production: Pydantic schemas, Alembic migrations, typed config, ruff linting, and GitHub Actions CI that also checks the Docker image builds.</li>
+      </ul>
+      <p class="decision"><b>Key decision:</b> automation reads the inbox of a separate bot account, never my real one, so a rate limit or flag can't touch the primary profile. Submitting a job application is never automated, by design.</p>
+    </div>
+    <aside class="f-side">
+      <div class="metrics">
+        <div class="metric"><b>$0.0014</b><span>measured analysis cost per video (Batch API)</span></div>
+        <div class="metric"><b>7,000+</b><span>videos per bulk run</span></div>
+        <div class="metric"><b>60</b><span>automated tests, CI on every push</span></div>
+      </div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLModel</span><span class="chip">Alembic</span><span class="chip">Claude API</span><span class="chip">Whisper</span><span class="chip">Tesseract</span><span class="chip">Playwright</span><span class="chip">Docker</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/tiktok-saved-scanner" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/tiktok-saved-scanner/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
+    </aside>
+  </article>
+
+  <article class="feature">
+    <div class="f-main">
+      <div class="kicker"><span class="tag">Automation · data collection</span><span class="when">Aug – Sep 2026</span></div>
+      <h3>Ticket Buzzer</h3>
+      <p class="lede">A serverless ticket-price monitor. It watches events across resale platforms and sends a push alert, with a buy link, when a seat in the section I want drops below my target price.</p>
+      <ul>
+        <li>Headless-browser fetchers read each vendor's listings data. The results are merged so the cheapest seat wins whichever site it's on.</li>
+        <li>Every check is logged to SQLite. Alert logic tells a new drop from a further drop and from a reminder, so it alerts only when something has changed.</li>
+        <li>Runs on GitHub Actions with no server, and GitHub Issues forms let me add, edit or remove events from my phone.</li>
+      </ul>
+      <p class="decision"><b>Key decision:</b> I tested seven platforms with real requests before committing. Five block bots (DataDome, PerimeterX, Kasada) or expose only aggregate prices, so I built on the two with clean listings data and documented why.</p>
+    </div>
+    <aside class="f-side">
+      <div class="metrics">
+        <div class="metric"><b>10 min</b><span>check interval, $0 hosting</span></div>
+        <div class="metric"><b>7</b><span>platforms tested for feasibility</span></div>
+        <div class="metric"><b>105</b><span>automated tests</span></div>
+      </div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span><span class="chip">GitHub Actions</span><span class="chip">ntfy.sh</span><span class="chip">pytest</span></div>
+      <div class="links"><span class="nolink">Private repo · demo on request</span></div>
+    </aside>
+  </article>
+
+
+  <div class="grid">
+    <article class="card">
+      <div class="kicker"><span class="tag">LLM infrastructure</span><span class="when">Oct 2026</span></div>
+      <h3>Multi-model inference gateway</h3>
+      <p>One OpenAI-compatible API in front of several open models (Ollama, vLLM, Fireworks), with dynamic request batching and per-request timing. Latency is reported as measured p50/p95/p99, not a guess. Batching raised throughput from 18.6 to 94.6 requests/s in a 300-request load test.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">asyncio</span><span class="chip">httpx</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/inference-gateway" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </article>
+    <article class="card">
+      <div class="kicker"><span class="tag">LLM content automation</span><span class="when">Sep 2026</span></div>
+      <h3>TLDR Brainrot</h3>
+      <p>Every morning at 7:00 it scrapes four TLDR newsletter editions, has Claude condense about 50 stories into a script, and renders a narrated, captioned 1080×1920 video. It has run unattended every day since launch.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">moviepy</span><span class="chip">ffmpeg</span><span class="chip">launchd</span></div>
+      <div class="links"><span class="nolink">Code available on request</span></div>
+    </article>
+  </div>
+
+  <div class="sec-head" style="margin-top:56px;margin-bottom:0">
+    <h2 style="font-size:24px">Web products</h2>
+    <p>Shipped sites with live links.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="kicker"><span class="tag">Web app · game</span><span class="when">Sep 2026</span></div>
+      <h3>Build Your Team</h3>
+      <p>A live auction-draft board for game nights and content creators. Teams bid real NBA, NFL or MLB players against a $20 budget, and the board handles budgets, roster slots, undo and edge cases like broke teams. No framework and no backend.</p>
+      <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">History API</span></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/build-your-team/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/build-your-team" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </article>
+    <article class="card">
+      <div class="kicker"><span class="tag">Web · health</span><span class="when">Sep 2026</span></div>
+      <h3>Painpoint</h3>
+      <p>Click the muscle that hurts on an anatomical body diagram and get curated stretch and physical-therapy videos. Built by a Python static-site generator, with enlarged tap targets for phones. It works fully without JavaScript.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">SVG</span><span class="chip">Accessibility</span></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/Painpoint/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/Painpoint" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </article>
+    <article class="card">
+      <div class="kicker"><span class="tag">Web design concept</span><span class="when">Sep 2026</span></div>
+      <h3>Pine Valley Pickleball &amp; Padel</h3>
+      <p>A redesign concept for a Philadelphia indoor pickleball and padel club. It reorganizes the site around booking and membership, with tier comparisons and a mobile layout tuned by hand.</p>
+      <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive</span></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/pine-valley-pickleball-redesign/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/pine-valley-pickleball-redesign" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </article>
+    <article class="card">
+      <div class="kicker"><span class="tag">Cloud · AWS</span><span class="when">2024</span></div>
+      <h3>Fix That Pain</h3>
+      <p>The serverless predecessor to Painpoint: a full-stack AWS app with a REST API on Lambda, DynamoDB and API Gateway, served from S3 and CloudFront, with documentation for deployment and maintenance.</p>
+      <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">DynamoDB</span><span class="chip">API Gateway</span><span class="chip">S3</span><span class="chip">CloudFront</span></div>
+      <div class="links"><a href="https://github.com/mthomas117/Fix-That-Pain" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </article>
+  </div>
+</section>
+
+<section id="experience" aria-labelledby="xp-h">
+  <div class="sec-head"><h2 id="xp-h">Experience</h2></div>
+  <div class="xp">
+    <div class="job">
+      <div class="dates">Aug 2025 – Present</div>
+      <div>
+        <h3>Technology Consultant</h3>
+        <p class="org">Protiviti · Business Platform Transformation · New York, NY</p>
+        <ul>
+          <li>Own end-to-end technical relationships across concurrent Workday integration engagements, from requirements and solution documentation through go-live.</li>
+          <li>Diagnose integration data errors with SQL across multi-table client datasets. Built a Python automation tool that cut diagnostic time by 90%.</li>
+          <li>Primary technical liaison for executive and operational stakeholders, turning partner feedback into product recommendations for engineering.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="dates">Jun 2024 – Aug 2024</div>
+      <div>
+        <h3>Technology Consulting Intern</h3>
+        <p class="org">Protiviti · New York, NY</p>
+        <ul>
+          <li>Built automated Python and Tableau dashboards monitoring ERP data quality across 280+ employees.</li>
+          <li>Produced 20+ technical reports and data-driven analyses supporting ERP vendor evaluation for senior management.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="dates">Dec 2022 – May 2023</div>
+      <div>
+        <h3>Information Technology Services Intern</h3>
+        <p class="org">Temple University · Philadelphia, PA</p>
+        <ul>
+          <li>Co-led the redesign of the main student portal serving 30,000+ users. I gathered requirements from end users and wrote specs for developers.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="dates">May 2024 – May 2025</div>
+      <div>
+        <h3>Director of Career Development</h3>
+        <p class="org">Association for Information Systems · Temple University</p>
+        <ul>
+          <li>Led outreach to 20+ employers and sent weekly opportunities to 200+ MIS students.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" aria-labelledby="sk-h">
+  <div class="sec-head"><h2 id="sk-h">Skills</h2></div>
+  <div class="skills">
+    <div class="skill"><h3>AI &amp; automation</h3><div class="chips"><span class="chip">Claude API</span><span class="chip">Structured outputs</span><span class="chip">Batch API</span><span class="chip">Prompt design</span><span class="chip">Whisper</span><span class="chip">OCR</span><span class="chip">Playwright</span><span class="chip">MCP</span><span class="chip">Agent harnesses</span><span class="chip">LLM serving &amp; batching</span><span class="chip">AI coding agents</span></div></div>
+    <div class="skill"><h3>Data &amp; analytics</h3><div class="chips"><span class="chip">SQL</span><span class="chip">SQLite</span><span class="chip">Python (pandas, NumPy)</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Parquet</span><span class="chip">Redis Streams</span><span class="chip">ETL &amp; data governance</span><span class="chip">Workday</span></div></div>
+    <div class="skill"><h3>Engineering</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">pytest</span><span class="chip">mypy</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML/CSS</span><span class="chip">REST APIs</span></div></div>
+    <div class="skill"><h3>Cloud &amp; DevOps</h3><div class="chips"><span class="chip">AWS (Lambda, S3, KMS, IAM, DynamoDB, API Gateway, CloudFront)</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">Prometheus &amp; Grafana</span><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">Google Cloud</span></div></div>
+  </div>
+  <div class="edu">
+    <div><span class="label">Education</span><b>Temple University, Fox School of Business</b><span>BBA, Management Information Systems · Major GPA 3.97</span></div>
+    <div><span class="label">Certifications</span><b>AWS Certified Cloud Practitioner</b><span>KPMG Data Analytics Consulting Virtual Certificate</span></div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="ct-h">
+  <div>
+    <h2 id="ct-h">Let's talk.</h2>
+    <p>I'm open to roles in AI, operational analytics and technical consulting. Email is the fastest way to reach me.</p>
+  </div>
+  <div class="rows">
+    <div class="crow"><span class="k">Email</span><a id="email" href="mailto:matt.thomas7641@gmail.com">matt.thomas7641@gmail.com</a><button class="copy" type="button" id="copy-email">Copy</button></div>
+    <div class="crow"><span class="k">GitHub</span><a href="https://github.com/mattthomas7641" target="_blank" rel="noopener">github.com/mattthomas7641 ↗</a></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Matthew Thomas</span><span>Philadelphia, PA</span></footer>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email'), a=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var done=function(t){btn.textContent=t;setTimeout(function(){btn.textContent='Copy';},1600);};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected');};
+    try{navigator.clipboard.writeText(a.textContent.trim()).then(function(){done('Copied');},fallback);}catch(e){fallback();}
+  });
+})();
+</script>
+
+</body>
+</html>
