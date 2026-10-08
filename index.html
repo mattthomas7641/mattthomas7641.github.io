@@ -179,7 +179,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       <div><dt>Based in</dt><dd>Philadelphia, PA</dd></div>
       <div><dt>Education</dt><dd>BBA, MIS, Temple (Fox) · 3.97</dd></div>
       <div><dt>Certified</dt><dd>AWS Cloud Practitioner</dd></div>
-      <div><dt>In production</dt><dd class="live">11 projects · 8 public repos</dd></div>
+      <div><dt>In production</dt><dd class="live">11 projects · 10 public repos</dd></div>
     </dl>
   </div>
 </header>
@@ -193,7 +193,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <article class="feature">
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · reliability</span><span class="when">Oct 2026</span></div>
-      <h3>Longrun</h3>
+      <h3>Durable Agent Harness</h3>
       <p class="lede">A harness that lets an AI coding agent work for hours without being trusted. Kill it mid-run and it resumes from the last checkpoint. It fans work out to parallel subagents, and every action it takes is jailed, allow-listed and audited.</p>
       <ul>
         <li>Atomic checkpoints after every model turn and tool call, so a run killed at any instant finishes with the same result. CI proves this with a real <code>kill -9</code>.</li>
@@ -210,14 +210,14 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
         <div class="metric"><b>1</b><span>dependency: the Anthropic SDK</span></div>
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">MCP</span><span class="chip">Subagents</span><span class="chip">Sandboxing</span><span class="chip">GitHub Actions</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/longrun" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/durable-agent-harness" target="_blank" rel="noopener">GitHub ↗</a></div>
     </aside>
   </article>
 
   <article class="feature">
     <div class="f-main">
       <div class="kicker"><span class="tag">Data pipeline · cloud infrastructure</span><span class="when">Oct 2026</span></div>
-      <h3>Flightline</h3>
+      <h3>Flight Telemetry Pipeline</h3>
       <p class="lede">A governed flight-test telemetry pipeline. It ingests high-rate sensor data from aircraft, classifies and tags every sample before it's stored, writes it to a partitioned S3 data lake, and pages on-call the moment a reading crosses a safety threshold.</p>
       <ul>
         <li>FastAPI ingest feeds Redis Streams sharded by aircraft. Writers produce Parquet partitioned by data classification, and an hourly compactor deduplicates and merges small files.</li>
@@ -234,14 +234,14 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
         <div class="metric"><b>93%</b><span>branch coverage across 96 tests</span></div>
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Redis Streams</span><span class="chip">Parquet</span><span class="chip">AWS S3 · KMS · IAM</span><span class="chip">Kubernetes</span><span class="chip">KEDA</span><span class="chip">Terraform</span><span class="chip">Grafana</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/flightline" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/flightline/blob/main/docs/BENCHMARKS.md" target="_blank" rel="noopener">Benchmarks ↗</a></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/flight-telemetry-pipeline" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/flight-telemetry-pipeline/blob/main/docs/BENCHMARKS.md" target="_blank" rel="noopener">Benchmarks ↗</a></div>
     </aside>
   </article>
 
   <article class="feature">
     <div class="f-main">
       <div class="kicker"><span class="tag">AI pipeline · full-stack</span><span class="when">Sep – Oct 2026</span></div>
-      <h3>TikTok Saved Scanner</h3>
+      <h3>Saved Video Intelligence</h3>
       <p class="lede">A self-hosted app that turns thousands of saved TikToks into a searchable library. It transcribes, reads on-screen text, categorizes and scores each video, and flags anything worth acting on.</p>
       <ul>
         <li>A six-stage pipeline: data export → yt-dlp download → on-device Whisper transcription → frame OCR → Claude structured analysis → staleness checks for promo codes and dated offers.</li>
@@ -255,17 +255,17 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       <div class="metrics">
         <div class="metric"><b>$0.0014</b><span>measured analysis cost per video (Batch API)</span></div>
         <div class="metric"><b>7,000+</b><span>videos per bulk run</span></div>
-        <div class="metric"><b>60</b><span>automated tests, CI on every push</span></div>
+        <div class="metric"><b>72</b><span>automated tests, CI on every push</span></div>
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLModel</span><span class="chip">Alembic</span><span class="chip">Claude API</span><span class="chip">Whisper</span><span class="chip">Tesseract</span><span class="chip">Playwright</span><span class="chip">Docker</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/tiktok-saved-scanner" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/tiktok-saved-scanner/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/saved-video-intelligence" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/saved-video-intelligence/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
     </aside>
   </article>
 
   <article class="feature">
     <div class="f-main">
       <div class="kicker"><span class="tag">Automation · data collection</span><span class="when">Aug – Sep 2026</span></div>
-      <h3>Ticket Buzzer</h3>
+      <h3>Ticket Price Monitor</h3>
       <p class="lede">A serverless ticket-price monitor. It watches events across resale platforms and sends a push alert, with a buy link, when a seat in the section I want drops below my target price.</p>
       <ul>
         <li>Headless-browser fetchers read each vendor's listings data. The results are merged so the cheapest seat wins whichever site it's on.</li>
@@ -281,7 +281,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
         <div class="metric"><b>105</b><span>automated tests</span></div>
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span><span class="chip">GitHub Actions</span><span class="chip">ntfy.sh</span><span class="chip">pytest</span></div>
-      <div class="links"><span class="nolink">Private repo · demo on request</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/ticket-price-monitor" target="_blank" rel="noopener">GitHub ↗</a></div>
     </aside>
   </article>
 
@@ -289,17 +289,17 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <div class="grid">
     <article class="card">
       <div class="kicker"><span class="tag">LLM infrastructure</span><span class="when">Oct 2026</span></div>
-      <h3>Multi-model inference gateway</h3>
+      <h3>LLM Inference Gateway</h3>
       <p>One OpenAI-compatible API in front of several open models (Ollama, vLLM, Fireworks), with dynamic request batching and per-request timing. Latency is reported as measured p50/p95/p99, not a guess. Batching raised throughput from 18.6 to 94.6 requests/s in a 300-request load test.</p>
       <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">asyncio</span><span class="chip">httpx</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/inference-gateway" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/llm-inference-gateway" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
     <article class="card">
       <div class="kicker"><span class="tag">LLM content automation</span><span class="when">Sep 2026</span></div>
-      <h3>TLDR Brainrot</h3>
+      <h3>Newsletter-to-Video Pipeline</h3>
       <p>Every morning at 7:00 it scrapes four TLDR newsletter editions, has Claude condense about 50 stories into a script, and renders a narrated, captioned 1080×1920 video. It has run unattended every day since launch.</p>
       <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">moviepy</span><span class="chip">ffmpeg</span><span class="chip">launchd</span></div>
-      <div class="links"><span class="nolink">Code available on request</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/newsletter-video-pipeline" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
   </div>
 
@@ -310,29 +310,29 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <div class="grid">
     <article class="card">
       <div class="kicker"><span class="tag">Web app · game</span><span class="when">Sep 2026</span></div>
-      <h3>Build Your Team</h3>
+      <h3>Auction Draft Board</h3>
       <p>A live auction-draft board for game nights and content creators. Teams bid real NBA, NFL or MLB players against a $20 budget, and the board handles budgets, roster slots, undo and edge cases like broke teams. No framework and no backend.</p>
       <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">History API</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/build-your-team/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/build-your-team" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/auction-draft-board/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/auction-draft-board" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
     <article class="card">
       <div class="kicker"><span class="tag">Web · health</span><span class="when">Sep 2026</span></div>
-      <h3>Painpoint</h3>
+      <h3>Stretch Finder</h3>
       <p>Click the muscle that hurts on an anatomical body diagram and get curated stretch and physical-therapy videos. Built by a Python static-site generator, with enlarged tap targets for phones. It works fully without JavaScript.</p>
       <div class="chips"><span class="chip">Python</span><span class="chip">SVG</span><span class="chip">Accessibility</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/Painpoint/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/Painpoint" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/stretch-finder/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/stretch-finder" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
     <article class="card">
       <div class="kicker"><span class="tag">Web design concept</span><span class="when">Sep 2026</span></div>
-      <h3>Pine Valley Pickleball &amp; Padel</h3>
+      <h3>Pine Valley Website Redesign</h3>
       <p>A redesign concept for a Philadelphia indoor pickleball and padel club. It reorganizes the site around booking and membership, with tier comparisons and a mobile layout tuned by hand.</p>
       <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/pine-valley-pickleball-redesign/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/pine-valley-pickleball-redesign" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="links"><a href="https://mattthomas7641.github.io/pine-valley-website-redesign/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/pine-valley-website-redesign" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
     <article class="card">
       <div class="kicker"><span class="tag">Cloud · AWS</span><span class="when">2024</span></div>
-      <h3>Fix That Pain</h3>
-      <p>The serverless predecessor to Painpoint: a full-stack AWS app with a REST API on Lambda, DynamoDB and API Gateway, served from S3 and CloudFront, with documentation for deployment and maintenance.</p>
+      <h3>Stretch Finder v1 on AWS</h3>
+      <p>The serverless first version of Stretch Finder: a full-stack AWS app with a REST API on Lambda, DynamoDB and API Gateway, served from S3 and CloudFront, with documentation for deployment and maintenance.</p>
       <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">DynamoDB</span><span class="chip">API Gateway</span><span class="chip">S3</span><span class="chip">CloudFront</span></div>
       <div class="links"><a href="https://github.com/mthomas117/Fix-That-Pain" target="_blank" rel="noopener">GitHub ↗</a></div>
     </article>
