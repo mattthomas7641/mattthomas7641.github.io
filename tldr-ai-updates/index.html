@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TLDR AI Updates Uploader</title>
+<meta name="description" content="A personal tool that writes, renders and uploads daily tech-news Shorts to the TLDR AI Updates YouTube channel.">
+<style>
+:root{--paper:#F5F6F3;--ink:#14171A;--ink-2:#3A4046;--muted:#646B71;--rule:#DCDFD8;--accent:#0D6963}
+@media (prefers-color-scheme: dark){:root{--paper:#111416;--ink:#ECEFEC;--ink-2:#C4CAC8;--muted:#979FA3;--rule:#2A3034;--accent:#5CC2B8;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:20px;padding-block:48px 64px}
+main{max-width:68ch;margin:0 auto}
+h1{font-size:32px;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:19px;margin:32px 0 8px}
+p,li{color:var(--ink-2)}
+ol{padding-left:22px}
+a{color:var(--accent)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>TLDR AI Updates Uploader</h1>
+<p>A personal, open-source tool that turns the day's top technology stories from the TLDR newsletters into short explainer videos and posts them to its owner's YouTube channel, <a href="https://www.youtube.com/channel/UCuEBA4AeCocw0ScKuknRXWA">TLDR AI Updates</a>. It runs on the owner's computer once a day and is not offered to other users.</p>
+
+<h2>How it works</h2>
+<ol>
+  <li>Reads the public TLDR newsletter pages and selects the most notable technology stories.</li>
+  <li>Writes a short script for each video, with links to the original sources.</li>
+  <li>Generates narration with a local text-to-speech voice and renders a 40–45 second vertical video with captions and an animated presenter.</li>
+  <li>Uploads each video to the owner's channel through the YouTube Data API, with a title, description, source links and tags, and sets its visibility.</li>
+</ol>
+
+<h2>YouTube API usage</h2>
+<p>The tool only acts on the owner's own channel: it uploads videos the owner produced, reads the channel name to confirm the connection, and changes the visibility of videos it uploaded. It reads no data about viewers or other channels.</p>
+
+<footer><a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/mattthomas7641/newsletter-video-pipeline">Source code</a> · Contact: matt.thomas7641@gmail.com</footer>
+</main>
+</body>
+</html>
