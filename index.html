@@ -166,7 +166,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <div>
     <h1>Matthew Thomas</h1>
     <p class="role">Technology Consultant · AI &amp; Operational Data</p>
-    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI systems and data infrastructure that run unattended: a crash-safe harness for AI coding agents, a telemetry pipeline that pages in 166 ms, and a 7,000-video LLM classifier.</p>
+    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI systems and data infrastructure that run unattended: a crash-safe harness for AI coding agents, a ticket-price monitor that tells me whether to buy now or wait, and a 7,000-video LLM classifier.</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my projects</a>
       <a class="btn" href="https://github.com/mattthomas7641" target="_blank" rel="noopener">GitHub ↗</a>
@@ -211,30 +211,6 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">MCP</span><span class="chip">Subagents</span><span class="chip">Sandboxing</span><span class="chip">GitHub Actions</span></div>
       <div class="links"><a href="https://github.com/mattthomas7641/durable-agent-harness" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </aside>
-  </article>
-
-  <article class="feature">
-    <div class="f-main">
-      <div class="kicker"><span class="tag">Data pipeline · cloud infrastructure</span><span class="when">Oct 2026</span></div>
-      <h3>Flight Telemetry Pipeline</h3>
-      <p class="lede">A governed flight-test telemetry pipeline. It ingests high-rate sensor data from aircraft, classifies and tags every sample before it's stored, writes it to a partitioned S3 data lake, and pages on-call the moment a reading crosses a safety threshold.</p>
-      <ul>
-        <li>FastAPI ingest feeds Redis Streams sharded by aircraft. Writers produce Parquet partitioned by data classification, and an hourly compactor deduplicates and merges small files.</li>
-        <li>Governance at the door: classification, owner, retention and lineage are attached to every sample. Unknown channels are quarantined, and an S3 policy rejects any untagged write.</li>
-        <li>Alerting on event time, with sustain windows and hysteresis so a spike doesn't page and an alert doesn't flap. Escalations go to PagerDuty and Slack, and a watchdog pages when a flight goes silent.</li>
-        <li>Kubernetes manifests (HPA, KEDA scaling on stream lag) and Terraform for S3, KMS and IAM, with Prometheus and Grafana dashboards.</li>
-      </ul>
-      <p class="decision"><b>Key decision:</b> storage and paging read the stream separately, so alerts never wait on a slow write. Under storage saturation, pages still landed in 166 ms.</p>
-    </div>
-    <aside class="f-side">
-      <div class="metrics">
-        <div class="metric"><b>420k</b><span>samples/s ingested on a single core</span></div>
-        <div class="metric"><b>166 ms</b><span>mean ingest-to-page under storage saturation</span></div>
-        <div class="metric"><b>93%</b><span>branch coverage across 96 tests</span></div>
-      </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Redis Streams</span><span class="chip">Parquet</span><span class="chip">AWS S3 · KMS · IAM</span><span class="chip">Kubernetes</span><span class="chip">KEDA</span><span class="chip">Terraform</span><span class="chip">Grafana</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/flight-telemetry-pipeline" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/flight-telemetry-pipeline/blob/main/docs/BENCHMARKS.md" target="_blank" rel="noopener">Benchmarks ↗</a></div>
     </aside>
   </article>
 
@@ -290,21 +266,22 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">Automation · data collection</span><span class="when">Aug – Sep 2026</span></div>
       <h3>Ticket Price Monitor</h3>
-      <p class="lede">A serverless ticket-price monitor. It watches events across resale platforms and sends a push alert, with a buy link, when a seat in the section I want drops below my target price.</p>
+      <p class="lede">A serverless ticket-price monitor. It watches events across resale platforms and sends a push alert, with a buy link and a buy-now-or-wait forecast, when a seat in the section I want drops below my target price.</p>
       <ul>
         <li>Headless-browser fetchers read each vendor's listings data. The results are merged so the cheapest seat wins whichever site it's on.</li>
-        <li>Every check is logged to SQLite. Alert logic tells a new drop from a further drop and from a reminder, so it alerts only when something has changed.</li>
-        <li>Runs on GitHub Actions with no server, and GitHub Issues forms let me add, edit or remove events from my phone.</li>
+        <li>An alert engine with sustain checks, a dollar hysteresis band, deal and great-deal levels, and one dedup key per incident decides when a price is news. I ported it from an earlier telemetry-alerting project.</li>
+        <li>A forecast learns from finished events' price history, normalized by days until the event and pooled by event type, and says "buy now" or "likely to drop" with a confidence. It stays quiet until 10 events have finished.</li>
+        <li>Code is a public, installable package. My live watchlist and price history sit in a private repo whose GitHub Actions pin a tagged release. GitHub Issues forms let me add, edit or remove events from my phone.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> I tested seven platforms with real requests before committing. Five block bots (DataDome, PerimeterX, Kasada) or expose only aggregate prices, so I built on the two with clean listings data and documented why.</p>
+      <p class="decision"><b>Key decision:</b> I replayed the recorded price history through the old and new alert logic before switching. With test targets at each event's 25th-percentile price, the engine cut alerts from 53 to 10 and noise alerts from 32 to 1. The cost is one extra check, about 10 minutes, before the first alert.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
-        <div class="metric"><b>10 min</b><span>check interval, $0 hosting</span></div>
+        <div class="metric"><b>32 → 1</b><span>noise alerts, replayed history</span></div>
         <div class="metric"><b>7</b><span>platforms tested for feasibility</span></div>
-        <div class="metric"><b>105</b><span>automated tests</span></div>
+        <div class="metric"><b>167</b><span>automated tests</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span><span class="chip">GitHub Actions</span><span class="chip">ntfy.sh</span><span class="chip">pytest</span></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span><span class="chip">GitHub Actions</span><span class="chip">ntfy.sh</span><span class="chip">Forecasting</span></div>
       <div class="links"><a href="https://github.com/mattthomas7641/ticket-price-monitor" target="_blank" rel="noopener">GitHub ↗</a></div>
     </aside>
   </article>
