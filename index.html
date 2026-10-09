@@ -218,22 +218,23 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI pipeline · full-stack</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Saved Video Intelligence</h3>
-      <p class="lede">A self-hosted app that turns thousands of saved TikToks into a searchable library. It transcribes, reads on-screen text, categorizes and scores each video, and flags anything worth acting on.</p>
+      <p class="lede">Share a TikTok to a Telegram bot and a Claude research agent does the follow-up: it checks the GitHub repos a video recommends against the live API, traces AI news to its source, or finds a food spot's hours and best day to go. The same app turns a 7,000-video Saved list into a searchable, AI-analyzed library.</p>
       <ul>
         <li>A six-stage pipeline: data export → yt-dlp download → on-device Whisper transcription → frame OCR → Claude structured analysis → staleness checks for promo codes and dated offers.</li>
         <li>Cost engineering for bulk runs: parallel local collection with automatic backoff, Anthropic's Batch API at half price, a spending cap, and resume-from-anywhere.</li>
-        <li>Action detection that pulls skills, project ideas and job leads out of videos into a queue, exposed through token-scoped JSON API routes for a scheduled agent.</li>
+        <li>A research agent built as a tool loop on the Claude API: server-side web search and fetch, a GitHub lookup tool so repo claims get checked against real stars and commit dates, and a structured report scored against the user's own projects.</li>
+        <li>Telegram intake that runs anywhere: long-polling with no public URL, one-time-code pairing to a single chat, and one status message edited live from download through research. Results land on a filterable dashboard page.</li>
         <li>Engineering upgrades for production: Pydantic schemas, Alembic migrations, typed config, ruff linting, and GitHub Actions CI that also checks the Docker image builds.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> automation reads the inbox of a separate bot account, never my real one, so a rate limit or flag can't touch the primary profile. Submitting a job application is never automated, by design.</p>
+      <p class="decision"><b>Key decision:</b> only videos I deliberately share reach the research agent, under a daily spending cap, while the bulk backlog stays on the cheap Batch API path. Submitting a job application is never automated, by design.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
         <div class="metric"><b>$0.0014</b><span>measured analysis cost per video (Batch API)</span></div>
         <div class="metric"><b>7,000+</b><span>videos per bulk run</span></div>
-        <div class="metric"><b>72</b><span>automated tests, CI on every push</span></div>
+        <div class="metric"><b>117</b><span>automated tests, CI on every push</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLModel</span><span class="chip">Alembic</span><span class="chip">Claude API</span><span class="chip">Whisper</span><span class="chip">Tesseract</span><span class="chip">Playwright</span><span class="chip">Docker</span></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLModel</span><span class="chip">Alembic</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Telegram Bot API</span><span class="chip">Whisper</span><span class="chip">Tesseract</span><span class="chip">Docker</span></div>
       <div class="links"><a href="https://github.com/mattthomas7641/saved-video-intelligence" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/saved-video-intelligence/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
     </aside>
   </article>
