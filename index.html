@@ -166,7 +166,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <div>
     <h1>Matthew Thomas</h1>
     <p class="role">Technology Consultant · AI &amp; Operational Data</p>
-    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI agents with measured results: Northstar, a personal finance agent that can't make up numbers; Sidequest, a research agent that follows up on what I share; and ByteSize News, which turns the daily tech news into YouTube Shorts.</p>
+    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI agents with measured results: Northstar, a personal finance agent that can't make up numbers; Sidequest, a research agent that turns anything I send it into a to-do; and ByteSize News, which turns the daily tech news into YouTube Shorts.</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my projects</a>
       <a class="btn" href="https://github.com/mattthomas7641" target="_blank" rel="noopener">GitHub ↗</a>
@@ -194,11 +194,11 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
-      <p class="lede">A personal finance agent you can trust with numbers. It connects to my banks through Plaid (or CSV exports), answers questions in plain English, tracks whether I'm on pace to max out my 401(k), and builds a budget plan to hit my goals. Every figure it gives is checked against my data before I see it.</p>
+      <p class="lede">A personal finance agent you can trust with numbers. It connects to my banks through Plaid (or CSV exports), answers questions in plain English, plans for retirement, from 401(k) max-out pace to long-term retirement goals, and builds a budget plan to hit them. Every figure it gives is checked against my data before I see it.</p>
       <ul>
         <li>The agent answers by running read-only SQL and a safe calculator. A deterministic number checker rejects any answer containing a figure that didn't come from a tool result, and sends it back to be fixed.</li>
         <li>A privacy layer scrubs names, phone numbers and account digits before anything reaches the API, with a local-only mode and a log of every character sent. Plaid tokens live in the macOS Keychain.</li>
-        <li>401(k) tracking against IRS limits with catch-up rules, the exact contribution % to max out with the paychecks left, and warnings about missed employer match. Goals and a budget plan that never trims rent or health.</li>
+        <li>Retirement planning: 401(k) contributions (pre-tax and Roth) tracked against IRS limits with catch-up rules, the exact contribution % to max out with the paychecks left, and warnings about missed employer match. Retirement goals project the monthly amount needed at an assumed return, alongside savings goals and a budget plan that never trims rent or health.</li>
         <li>Runs on my Mac and installs on my phone over Tailscale with a passcode, and still shows my last-synced numbers when the Mac is off.</li>
       </ul>
       <p class="decision"><b>Key decision:</b> keep the model away from the arithmetic. Categorization, insights and planning are deterministic code; the LLM writes queries and explains results, and every number it states has to trace back to one.</p>
@@ -216,25 +216,25 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
 
   <article class="feature">
     <div class="f-main">
-      <div class="kicker"><span class="tag">AI pipeline · full-stack</span><span class="when">Sep – Oct 2026</span></div>
+      <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
-      <p class="lede">Share a TikTok to a Telegram bot and a Claude research agent does the follow-up: it checks the GitHub repos a video recommends against the live API, traces AI news to its source, or finds a food spot's hours and best day to go. The same app turns a 7,000-video Saved list into a searchable, AI-analyzed library.</p>
+      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent watches it, does the follow-up I'd never get around to, and puts a concrete next step on my to-do list so I actually act on it.</p>
       <ul>
-        <li>A six-stage pipeline: data export → yt-dlp download → on-device Whisper transcription → frame OCR → Claude structured analysis → staleness checks for promo codes and dated offers.</li>
-        <li>Cost engineering for bulk runs: parallel local collection with automatic backoff, Anthropic's Batch API at half price, a spending cap, and resume-from-anywhere.</li>
-        <li>A research agent built as a tool loop on the Claude API: server-side web search and fetch, a GitHub lookup tool so repo claims get checked against real stars and commit dates, and a structured report scored against the user's own projects.</li>
-        <li>Telegram intake that runs anywhere: long-polling with no public URL, one-time-code pairing to a single chat, and one status message edited live from download through research. Results land on a filterable dashboard page.</li>
-        <li>Engineering upgrades for production: Pydantic schemas, Alembic migrations, typed config, ruff linting, and GitHub Actions CI that also checks the Docker image builds.</li>
+        <li>One share button from any app. An iOS Shortcut (or a Telegram bot) takes videos from TikTok, Instagram, YouTube and X, plus screenshots, photos, articles and plain notes. If a download is blocked, it judges the item from the link instead of failing.</li>
+        <li>My most common use: a video about a new agent skill or dev tool. The agent reads my actual project code, then tells me whether the tool is worth adopting, where it would plug in and what it would change, instead of a generic review.</li>
+        <li>It goes beyond repos. It vets GitHub tools against the live API (stars, last commit, license), traces AI news to its source, and turns a food video into an address, hours and the best day to go, with real prices and red flags like paid promotions.</li>
+        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification. Items stay there until I mark them done or "not for me".</li>
+        <li>Gemini watches the video once (audio and frames together, so it sees code and prices on screen), then runs a tool loop with Google Search and Maps grounding plus my own GitHub and project-file tools. Claude can run the same loop.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> only videos I deliberately share reach the research agent, under a daily spending cap, while the bulk backlog stays on the cheap Batch API path. Submitting a job application is never automated, by design.</p>
+      <p class="decision"><b>Key decision:</b> judge every tech find against my own projects, not in the abstract. A "10 tools you need" video becomes a short answer about which one would help this week and which ones I can ignore. Sending a job application is never automated, by design.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
-        <div class="metric"><b>$0.0014</b><span>measured analysis cost per video (Batch API)</span></div>
-        <div class="metric"><b>7,000+</b><span>videos per bulk run</span></div>
+        <div class="metric"><b>Any app</b><span>TikTok, Reels, Shorts, X, links or screenshots, through the share sheet</span></div>
+        <div class="metric"><b>$0.01–0.03</b><span>per item researched, under a daily spending cap</span></div>
         <div class="metric"><b>117</b><span>automated tests, CI on every push</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLModel</span><span class="chip">Alembic</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Telegram Bot API</span><span class="chip">Whisper</span><span class="chip">Tesseract</span><span class="chip">Docker</span></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Gemini API</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Search grounding</span><span class="chip">iOS Shortcuts</span><span class="chip">Telegram Bot API</span><span class="chip">SQLModel</span><span class="chip">Docker</span></div>
       <div class="links"><a href="https://github.com/mattthomas7641/saved-video-intelligence" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/saved-video-intelligence/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
     </aside>
   </article>
@@ -293,6 +293,15 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       </div>
     </div>
     <div class="job">
+      <div class="dates">May 2024 – May 2025</div>
+      <div>
+        <h3>Director of Career Development</h3>
+        <p class="org">Association for Information Systems · Temple University</p>
+        <ul>
+          <li>Led outreach to 20+ employers and sent weekly opportunities to 200+ MIS students.</li>
+        </ul>
+      </div>
+    <div class="job">
       <div class="dates">Dec 2022 – May 2023</div>
       <div>
         <h3>Information Technology Services Intern</h3>
@@ -302,15 +311,6 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
         </ul>
       </div>
     </div>
-    <div class="job">
-      <div class="dates">May 2024 – May 2025</div>
-      <div>
-        <h3>Director of Career Development</h3>
-        <p class="org">Association for Information Systems · Temple University</p>
-        <ul>
-          <li>Led outreach to 20+ employers and sent weekly opportunities to 200+ MIS students.</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -318,10 +318,10 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
 <section id="skills" aria-labelledby="sk-h">
   <div class="sec-head"><h2 id="sk-h">Skills</h2></div>
   <div class="skills">
-    <div class="skill"><h3>AI &amp; automation</h3><div class="chips"><span class="chip">Claude API</span><span class="chip">Structured outputs</span><span class="chip">Batch API</span><span class="chip">Prompt design</span><span class="chip">Whisper</span><span class="chip">Text-to-speech</span><span class="chip">OCR</span><span class="chip">Playwright</span><span class="chip">MCP</span><span class="chip">Agent harnesses</span><span class="chip">LLM serving &amp; batching</span><span class="chip">AI coding agents</span></div></div>
-    <div class="skill"><h3>Data &amp; analytics</h3><div class="chips"><span class="chip">SQL</span><span class="chip">SQLite</span><span class="chip">Python (pandas, NumPy)</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Parquet</span><span class="chip">Redis Streams</span><span class="chip">ETL &amp; data governance</span><span class="chip">Workday</span></div></div>
-    <div class="skill"><h3>Engineering</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">pytest</span><span class="chip">mypy</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML/CSS</span><span class="chip">HyperFrames</span><span class="chip">GSAP</span><span class="chip">REST APIs</span><span class="chip">YouTube Data API</span><span class="chip">OAuth 2.0</span></div></div>
-    <div class="skill"><h3>Cloud &amp; DevOps</h3><div class="chips"><span class="chip">AWS (Lambda, S3, KMS, IAM, DynamoDB, API Gateway, CloudFront)</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">Prometheus &amp; Grafana</span><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">Google Cloud</span></div></div>
+    <div class="skill"><h3>AI &amp; automation</h3><div class="chips"><span class="chip">Claude API</span><span class="chip">Structured outputs</span><span class="chip">Batch API</span><span class="chip">Prompt design</span><span class="chip">Whisper</span><span class="chip">Gemini API</span><span class="chip">Text-to-speech</span><span class="chip">OCR</span><span class="chip">Playwright</span><span class="chip">AI coding agents</span></div></div>
+    <div class="skill"><h3>Data &amp; analytics</h3><div class="chips"><span class="chip">SQL</span><span class="chip">SQLite</span><span class="chip">Python</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">ETL pipelines</span><span class="chip">Workday</span></div></div>
+    <div class="skill"><h3>Engineering</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">pytest</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML/CSS</span><span class="chip">HyperFrames</span><span class="chip">GSAP</span><span class="chip">REST APIs</span><span class="chip">YouTube Data API</span><span class="chip">OAuth 2.0</span></div></div>
+    <div class="skill"><h3>Cloud &amp; DevOps</h3><div class="chips"><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">Google Cloud</span></div></div>
   </div>
   <div class="edu">
     <div><span class="label">Education</span><b>Temple University, Fox School of Business</b><span>BBA, Management Information Systems · Major GPA 3.97</span></div>
