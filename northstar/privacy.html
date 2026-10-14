@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northstar Privacy Policy</title>
+<meta name="description" content="Privacy and data retention policy for Northstar, a single-user personal finance agent.">
+<style>
+:root{--paper:#F5F6F3;--ink:#14171A;--ink-2:#3A4046;--muted:#646B71;--rule:#DCDFD8;--accent:#0D6963}
+@media (prefers-color-scheme: dark){:root{--paper:#111416;--ink:#ECEFEC;--ink-2:#C4CAC8;--muted:#979FA3;--rule:#2A3034;--accent:#5CC2B8;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:20px;padding-block:48px 64px}
+main{max-width:68ch;margin:0 auto}
+h1{font-size:32px;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:19px;margin:32px 0 8px}
+p,li{color:var(--ink-2)}
+ul{padding-left:20px}
+.meta{color:var(--muted);font-size:14px;margin:0 0 28px}
+a{color:var(--accent)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy Policy</h1>
+<p class="meta">Northstar (Personal Finance Agent) · Effective October 14, 2026 · Reviewed every 6 months</p>
+
+<p>Northstar is a personal software tool built and operated by Matthew Thomas. It runs on the operator's own computer and reads the operator's own bank and card transactions to categorize spending, track budgets and savings goals, and answer questions about that spending. It is not offered to the public and has no other users. It never initiates payments or moves money.</p>
+
+<h2>What data it accesses</h2>
+<ul>
+  <li><b>Through Plaid</b> (Transactions product), for accounts the operator connects: account names and types, and transaction dates, amounts, descriptions, merchant names and categories.</li>
+  <li><b>From CSV exports</b> the operator imports manually: the same transaction fields.</li>
+  <li>Numbers the operator enters (salary, 401(k) contribution, savings goals) to calculate progress toward goals.</li>
+</ul>
+<p>Bank sign-in happens inside Plaid's own window. Northstar never sees or stores bank usernames or passwords.</p>
+
+<h2>Consent</h2>
+<p>The operator is the only person whose data Northstar processes, and connects each account deliberately through Plaid Link, which shows what data is shared before access is granted.</p>
+
+<h2>How data is stored and protected</h2>
+<ul>
+  <li>All data is stored only on the operator's computer, which uses full-disk encryption.</li>
+  <li>Plaid access tokens are stored in the operating system's keychain, not in the application database.</li>
+  <li>The app is reachable only from the operator's own computer and, optionally, the operator's own devices over an encrypted private network, behind a passcode.</li>
+  <li>Data in transit to Plaid and other services is encrypted with HTTPS (TLS 1.2 or better).</li>
+</ul>
+
+<h2>Sharing</h2>
+<p>Northstar does not sell, rent or share data. To categorize transactions and answer questions, it sends limited text to Anthropic's Claude API, after removing personal details: people's names in payment-app transactions, email addresses, phone numbers, and card, account and reference numbers. A local-only mode sends nothing for categorization. Anthropic does not use API data to train its models.</p>
+
+<h2>Retention and deletion</h2>
+<ul>
+  <li>Transaction data is kept on the operator's computer while the operator uses the app, to support month-over-month and year-over-year budgeting.</li>
+  <li>Disconnecting a bank revokes Northstar's access at Plaid and deletes the stored access token immediately; the operator can choose to delete that bank's transaction history at the same time.</li>
+  <li>All data can be deleted at any time by removing the application's local database.</li>
+  <li>This policy is reviewed every 6 months and whenever a new data source or service is added.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Questions about this policy: Matthew Thomas, via <a href="https://github.com/mattthomas7641/personal-finance-agent">the Northstar repository on GitHub</a>.</p>
+
+<footer>Northstar · <a href="https://github.com/mattthomas7641/personal-finance-agent/blob/main/SECURITY.md">Security policy</a> · <a href="/">mattthomas7641.github.io</a></footer>
+</main>
+</body>
+</html>
