@@ -166,7 +166,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   <div>
     <h1>Matthew Thomas</h1>
     <p class="role">Technology Consultant · AI &amp; Operational Data</p>
-    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI systems and data infrastructure that run unattended: a crash-safe harness for AI coding agents, a ticket-price monitor that tells me whether to buy now or wait, and a 7,000-video LLM classifier.</p>
+    <p class="pitch">I turn messy operational data into tools people use. At Protiviti I lead enterprise Workday integration engagements and resolve the data issues that block them. On my own time I build AI agents with measured results: a personal finance agent that can't make up numbers, a research agent that follows up on what I share, and a pipeline that turns the daily tech news into YouTube Shorts.</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my projects</a>
       <a class="btn" href="https://github.com/mattthomas7641" target="_blank" rel="noopener">GitHub ↗</a>
@@ -179,7 +179,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       <div><dt>Based in</dt><dd>Philadelphia, PA</dd></div>
       <div><dt>Education</dt><dd>BBA, MIS, Temple (Fox) · 3.97</dd></div>
       <div><dt>Certified</dt><dd>AWS Cloud Practitioner</dd></div>
-      <div><dt>In production</dt><dd class="live">11 projects · 10 public repos</dd></div>
+      <div><dt>Building</dt><dd class="live">AI agents · evals · data pipelines</dd></div>
     </dl>
   </div>
 </header>
@@ -192,25 +192,25 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
 
   <article class="feature">
     <div class="f-main">
-      <div class="kicker"><span class="tag">AI agents · reliability</span><span class="when">Oct 2026</span></div>
-      <h3>Durable Agent Harness</h3>
-      <p class="lede">A harness that lets an AI coding agent work for hours without being trusted. Kill it mid-run and it resumes from the last checkpoint. It fans work out to parallel subagents, and every action it takes is jailed, allow-listed and audited.</p>
+      <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
+      <h3>ledger-agent</h3>
+      <p class="lede">A personal finance agent you can trust with numbers. It connects to my banks through Plaid (or CSV exports), answers questions in plain English, tracks whether I'm on pace to max out my 401(k), and builds a budget plan to hit my goals. Every figure it gives is checked against my data before I see it.</p>
       <ul>
-        <li>Atomic checkpoints after every model turn and tool call, so a run killed at any instant finishes with the same result. CI proves this with a real <code>kill -9</code>.</li>
-        <li>Side effects run at most once: a tool interrupted mid-call is reported to the model as "outcome unknown", never silently replayed.</li>
-        <li>A sandbox that blocks path escapes (including symlinks), runs commands without a shell from an allow-list, strips API keys from the environment and enforces CPU, file and timeout limits.</li>
-        <li>A tamper-evident, hash-chained audit log, parallel subagent fan-out that also survives crashes, and an MCP server interface.</li>
+        <li>The agent answers by running read-only SQL and a safe calculator. A deterministic number checker rejects any answer containing a figure that didn't come from a tool result, and sends it back to be fixed.</li>
+        <li>A privacy layer scrubs names, phone numbers and account digits before anything reaches the API, with a local-only mode and a log of every character sent. Plaid tokens live in the macOS Keychain.</li>
+        <li>401(k) tracking against IRS limits with catch-up rules, the exact contribution % to max out with the paychecks left, and warnings about missed employer match. Goals and a budget plan that never trims rent or health.</li>
+        <li>Runs on my Mac and installs on my phone over Tailscale with a passcode, and still shows my last-synced numbers when the Mac is off.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> each guarantee has a test that tries to break it, such as crashing at every step or editing an audit record, instead of trusting the design on paper.</p>
+      <p class="decision"><b>Key decision:</b> keep the model away from the arithmetic. Categorization, insights and planning are deterministic code; the LLM writes queries and explains results, and every number it states has to trace back to one.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
-        <div class="metric"><b>74</b><span>tests, <code>mypy --strict</code> clean</span></div>
-        <div class="metric"><b>92%</b><span>branch coverage</span></div>
-        <div class="metric"><b>1</b><span>dependency: the Anthropic SDK</span></div>
+        <div class="metric"><b>7/7</b><span>planted hallucinated numbers caught, 0 false alarms</span></div>
+        <div class="metric"><b>100</b><span>tests, incl. SQL-sandbox escapes and an offline end-to-end test</span></div>
+        <div class="metric"><b>0</b><span>names, phone or account numbers sent to the model (tested)</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">MCP</span><span class="chip">Subagents</span><span class="chip">Sandboxing</span><span class="chip">GitHub Actions</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/durable-agent-harness" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Plaid</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">PWA</span><span class="chip">Playwright</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/ledger-agent" target="_blank" rel="noopener">GitHub ↗</a></div>
     </aside>
   </article>
 
@@ -263,75 +263,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     </aside>
   </article>
 
-  <article class="feature">
-    <div class="f-main">
-      <div class="kicker"><span class="tag">Automation · data collection</span><span class="when">Aug – Sep 2026</span></div>
-      <h3>Ticket Price Monitor</h3>
-      <p class="lede">A serverless ticket-price monitor. It watches events across resale platforms and sends a push alert, with a buy link and a buy-now-or-wait forecast, when a seat in the section I want drops below my target price.</p>
-      <ul>
-        <li>Headless-browser fetchers read each vendor's listings data. The results are merged so the cheapest seat wins whichever site it's on.</li>
-        <li>An alert engine with sustain checks, a dollar hysteresis band, deal and great-deal levels, and one dedup key per incident decides when a price is news. I ported it from an earlier telemetry-alerting project.</li>
-        <li>A forecast learns from finished events' price history, normalized by days until the event and pooled by event type, and says "buy now" or "likely to drop" with a confidence. It stays quiet until 10 events have finished.</li>
-        <li>Code is a public, installable package. My live watchlist and price history sit in a private repo whose GitHub Actions pin a tagged release. GitHub Issues forms let me add, edit or remove events from my phone.</li>
-      </ul>
-      <p class="decision"><b>Key decision:</b> I replayed the recorded price history through the old and new alert logic before switching. With test targets at each event's 25th-percentile price, the engine cut alerts from 53 to 10 and noise alerts from 32 to 1. The cost is one extra check, about 10 minutes, before the first alert.</p>
-    </div>
-    <aside class="f-side">
-      <div class="metrics">
-        <div class="metric"><b>32 → 1</b><span>noise alerts, replayed history</span></div>
-        <div class="metric"><b>7</b><span>platforms tested for feasibility</span></div>
-        <div class="metric"><b>167</b><span>automated tests</span></div>
-      </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span><span class="chip">GitHub Actions</span><span class="chip">ntfy.sh</span><span class="chip">Forecasting</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/ticket-price-monitor" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </aside>
-  </article>
 
-
-  <div class="grid" style="grid-template-columns:1fr">
-    <article class="card">
-      <div class="kicker"><span class="tag">LLM infrastructure</span><span class="when">Oct 2026</span></div>
-      <h3>LLM Inference Gateway</h3>
-      <p>One OpenAI-compatible API in front of several open models (Ollama, vLLM, Fireworks), with dynamic request batching and per-request timing. Latency is reported as measured p50/p95/p99, not a guess. Batching raised throughput from 18.6 to 94.6 requests/s in a 300-request load test.</p>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">asyncio</span><span class="chip">httpx</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/llm-inference-gateway" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </article>
-  </div>
-
-  <div class="sec-head" style="margin-top:56px;margin-bottom:0">
-    <h2 style="font-size:24px">Web products</h2>
-    <p>Shipped sites with live links.</p>
-  </div>
-  <div class="grid">
-    <article class="card">
-      <div class="kicker"><span class="tag">Web app · game</span><span class="when">Sep 2026</span></div>
-      <h3>Auction Draft Board</h3>
-      <p>A live auction-draft board for game nights and content creators. Teams bid real NBA, NFL or MLB players against a $20 budget, and the board handles budgets, roster slots, undo and edge cases like broke teams. No framework and no backend.</p>
-      <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">History API</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/auction-draft-board/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/auction-draft-board" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </article>
-    <article class="card">
-      <div class="kicker"><span class="tag">Web · health</span><span class="when">Sep 2026</span></div>
-      <h3>Stretch Finder</h3>
-      <p>Click the muscle that hurts on an anatomical body diagram and get curated stretch and physical-therapy videos. Built by a Python static-site generator, with enlarged tap targets for phones. It works fully without JavaScript.</p>
-      <div class="chips"><span class="chip">Python</span><span class="chip">SVG</span><span class="chip">Accessibility</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/stretch-finder/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/stretch-finder" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </article>
-    <article class="card">
-      <div class="kicker"><span class="tag">Web design concept</span><span class="when">Sep 2026</span></div>
-      <h3>Pine Valley Website Redesign</h3>
-      <p>A redesign concept for a Philadelphia indoor pickleball and padel club. It reorganizes the site around booking and membership, with tier comparisons and a mobile layout tuned by hand.</p>
-      <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive</span></div>
-      <div class="links"><a href="https://mattthomas7641.github.io/pine-valley-website-redesign/" target="_blank" rel="noopener">Live site ↗</a><a href="https://github.com/mattthomas7641/pine-valley-website-redesign" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </article>
-    <article class="card">
-      <div class="kicker"><span class="tag">Cloud · AWS</span><span class="when">2024</span></div>
-      <h3>Stretch Finder v1 on AWS</h3>
-      <p>The serverless first version of Stretch Finder: a full-stack AWS app with a REST API on Lambda, DynamoDB and API Gateway, served from S3 and CloudFront, with documentation for deployment and maintenance.</p>
-      <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">DynamoDB</span><span class="chip">API Gateway</span><span class="chip">S3</span><span class="chip">CloudFront</span></div>
-      <div class="links"><a href="https://github.com/mthomas117/Fix-That-Pain" target="_blank" rel="noopener">GitHub ↗</a></div>
-    </article>
-  </div>
 </section>
 
 <section id="experience" aria-labelledby="xp-h">
