@@ -178,7 +178,7 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
       <li><b>ByteSize News</b>, an automated news pipeline, picks the day’s top tech stories each morning, writes and narrates the scripts, and publishes 10 YouTube Shorts a day, a full content operation that runs with no manual work.</li>
     </ul>
     <div class="cta">
-      <a class="btn primary" href="#work">See my projects</a>
+      <a class="btn primary" href="#work">See projects</a>
       <a class="btn" href="https://github.com/mattthomas7641" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="btn" href="#contact">Get in touch</a>
     </div>
@@ -197,20 +197,20 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
 <section id="work" aria-labelledby="work-h">
   <div class="sec-head">
     <h2 id="work-h">Selected work</h2>
-    <p>AI systems and data pipelines I scoped, built and tested, with measured results.</p>
+    <p>AI systems and data pipelines, scoped, built and tested with measured results.</p>
   </div>
 
   <article class="feature">
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
-      <p class="lede">A personal finance agent you can trust with numbers. It connects to my banks through Plaid (or CSV exports), answers questions in plain English, plans for retirement across my 401(k) and Roth IRA, projects when I reach financial independence, and builds a budget plan to get there. Every figure it gives is checked against my data before I see it.</p>
+      <p class="lede">A personal finance agent built to be trusted with numbers. It connects to live bank accounts through Plaid (or CSV exports), answers questions in plain English, plans for retirement across 401(k) and Roth IRA accounts, projects the path to financial independence, and builds a budget plan to get there. Every figure is checked against the underlying data before it’s shown.</p>
       <ul>
         <li>The agent answers by running read-only SQL and a safe calculator. A deterministic number checker rejects any answer containing a figure that didn't come from a tool result, and sends it back to be fixed.</li>
         <li>A privacy layer scrubs names, phone numbers and account digits before anything reaches the API, with a local-only mode and a log of every character sent. Plaid tokens live in the macOS Keychain.</li>
         <li>Retirement planning across accounts. 401(k): IRS limits with catch-up rules, the exact contribution % to max out with the paychecks left, and missed-match warnings. Roth IRA: the limit after the income phase-out, contributions auto-summed from transfers, and the monthly amount to max out before the deadline.</li>
-        <li>A retirement projection that combines every account and contribution: my FI number from my real last 12 months of spending, the age I reach it, and my Coast FIRE number and progress. Savings goals and a budget plan that never trims rent or health.</li>
-        <li>Runs on my Mac and installs on my phone over Tailscale with a passcode, and still shows my last-synced numbers when the Mac is off.</li>
+        <li>A retirement projection that combines every account and contribution: an FI number based on the last 12 months of actual spending, the age it’s reached, and a Coast FIRE number with progress. Savings goals and a budget plan that never trims rent or health.</li>
+        <li>Runs on a Mac and installs on a phone over Tailscale with a passcode, and still shows the last-synced numbers when the Mac is off.</li>
       </ul>
       <p class="decision"><b>Key decision:</b> keep the model away from the arithmetic. Categorization, insights and planning are deterministic code; the LLM writes queries and explains results, and every number it states has to trace back to one.</p>
     </div>
@@ -229,15 +229,15 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
-      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent watches it, does the follow-up I'd never get around to, and puts a concrete next step on my to-do list so I actually act on it.</p>
+      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent watches it, does the follow-up that usually never happens, and puts a concrete next step on a to-do list so it actually gets acted on.</p>
       <ul>
         <li>One share button from any app. An iOS Shortcut (or a Telegram bot) takes videos from TikTok, Instagram, YouTube and X, plus screenshots, photos, articles and plain notes. If a download is blocked, it judges the item from the link instead of failing.</li>
-        <li>My most common use: a video about a new agent skill or dev tool. The agent reads my actual project code, then tells me whether the tool is worth adopting, where it would plug in and what it would change, instead of a generic review.</li>
+        <li>The most common use: a video about a new agent skill or dev tool. The agent reads the actual project code, then reports whether the tool is worth adopting, where it would plug in and what it would change, instead of a generic review.</li>
         <li>It goes beyond repos. It vets GitHub tools against the live API (stars, last commit, license), traces AI news to its source, and turns a food video into an address, hours and the best day to go, with real prices and red flags like paid promotions.</li>
-        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification. Items stay there until I mark them done or "not for me".</li>
-        <li>Gemini watches the video once (audio and frames together, so it sees code and prices on screen), then runs a tool loop with Google Search and Maps grounding plus my own GitHub and project-file tools. Claude can run the same loop.</li>
+        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification. Items stay there until they’re marked done or “not for me”.</li>
+        <li>Gemini watches the video once (audio and frames together, so it sees code and prices on screen), then runs a tool loop with Google Search and Maps grounding plus custom GitHub and project-file tools. Claude can run the same loop.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> judge every tech find against my own projects, not in the abstract. A "10 tools you need" video becomes a short answer about which one would help this week and which ones I can ignore. Sending a job application is never automated, by design.</p>
+      <p class="decision"><b>Key decision:</b> judge every tech find against existing projects, not in the abstract. A "10 tools you need" video becomes a short answer about which one would help this week and which ones can be ignored. Sending a job application is never automated, by design.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
@@ -343,8 +343,8 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
 
 <section class="contact" id="contact" aria-labelledby="ct-h">
   <div>
-    <h2 id="ct-h">Let's talk.</h2>
-    <p>I'm open to roles in AI, operational analytics and technical consulting. Email is the fastest way to reach me.</p>
+    <h2 id="ct-h">Get in touch.</h2>
+    <p>Email is the fastest way to reach Matt.</p>
   </div>
   <div class="rows">
     <div class="crow"><span class="k">Email</span><a id="email" href="mailto:matt.thomas7641@gmail.com">matt.thomas7641@gmail.com</a><button class="copy" type="button" id="copy-email">Copy</button></div>
