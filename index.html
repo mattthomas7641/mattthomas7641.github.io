@@ -244,22 +244,23 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI content pipeline · video</span><span class="when">Sep – Oct 2026</span></div>
       <h3>ByteSize News <span style="font-weight:400;opacity:.65">(Newsletter-to-Video Pipeline)</span></h3>
-      <p class="lede">A daily pipeline that turns the TLDR tech newsletters into 40-second explainer Shorts and posts them to YouTube. Claude writes the scripts, a local AI voice reads them and an animated avatar presents them, with no manual steps.</p>
+      <p class="lede">A daily pipeline that turns the TLDR tech newsletters into 40-second explainer Shorts and posts them to YouTube. An AI model screens the stories, Claude writes the scripts, a cloned voice running locally reads them, and they post with no manual steps.</p>
       <ul>
-        <li>Claude as head writer: it picks the most interesting of about 50 stories, combines related ones, and returns structured scripts (hook, beats with a spoken line and a shorter on-screen card, outro, post caption and hashtags). A rule-based writer takes over if the API is unavailable.</li>
-        <li>Each line is voiced locally with Kokoro after prices and units are rewritten into speech (<code>$0.10</code> → "10 cents"), and pace adjusts so every video lands at 40–45 seconds.</li>
-        <li>Rendered as a HyperFrames and GSAP composition: one animated card per beat, word-highlight captions, and an original SVG avatar that lip-syncs to the voice and gestures at each card, over muted gameplay footage.</li>
-        <li>Uploads to YouTube Shorts through the Data API with OAuth. Each upload is recorded the moment it succeeds, so a re-run never posts twice, and stories already covered that day are skipped.</li>
+        <li>Two-stage story selection: Jev, a decision model from TypeSafe AI, first scores every candidate for scope and newsworthiness (a typical morning: 40 stories in, 18 in scope), so Claude only sees the shortlist. If Jev is down, Claude gets the full list instead.</li>
+        <li>Claude as head writer: it picks the strongest of the shortlisted stories, combines related ones, and returns structured scripts (hook, beats with a spoken line and a shorter on-screen card, outro, post caption and hashtags). A rule-based writer takes over if the API is unavailable.</li>
+        <li>Each line is voiced locally with a cloned voice (Qwen3-TTS through Voicebox, with Kokoro as a fallback) after prices and units are rewritten into speech (<code>$0.10</code> → "10 cents"), and pace adjusts so every video lands at 40–45 seconds. The pipeline relaunches the voice app itself, because the 7 a.m. run is unattended.</li>
+        <li>Rendered as a HyperFrames and GSAP composition: one animated card per beat, word-highlight captions with particle bursts, count-up numbers and a narrator character, over muted gameplay footage (or a plain background).</li>
+        <li>Uploads to YouTube Shorts through the Data API with OAuth. Each upload is recorded the moment it succeeds, so a re-run never posts twice, and stories already covered on any past day are skipped, even when retitled.</li>
       </ul>
       <p class="decision"><b>Key decision:</b> voice each line separately instead of the whole script at once, so every card and caption starts exactly on a sentence boundary. Measured caption timing error fell from 0.70 s to 0.21 s on average, and the worst case from 1.39 s to 0.39 s.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
+        <div class="metric"><b>10/day</b><span>videos written, voiced, rendered and uploaded unattended</span></div>
+        <div class="metric"><b>40 → 18</b><span>stories screened down by Jev before Claude writes</span></div>
         <div class="metric"><b>0.21 s</b><span>average caption timing error, down from 0.70 s</span></div>
-        <div class="metric"><b>2.5 min</b><span>to render a 40-second video on a laptop</span></div>
-        <div class="metric"><b>6/day</b><span>videos written, rendered and uploaded unattended</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">HyperFrames</span><span class="chip">GSAP</span><span class="chip">Kokoro TTS</span><span class="chip">YouTube Data API</span><span class="chip">OAuth 2.0</span><span class="chip">ffmpeg</span><span class="chip">launchd</span></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">HyperFrames</span><span class="chip">GSAP</span><span class="chip">Jev (TypeSafe AI)</span><span class="chip">Voice cloning</span><span class="chip">Qwen3-TTS</span><span class="chip">YouTube Data API</span><span class="chip">OAuth 2.0</span><span class="chip">ffmpeg</span><span class="chip">launchd</span></div>
       <div class="links"><a href="https://github.com/mattthomas7641/newsletter-video-pipeline" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.youtube.com/channel/UCuEBA4AeCocw0ScKuknRXWA" target="_blank" rel="noopener">YouTube channel ↗</a></div>
     </aside>
   </article>
