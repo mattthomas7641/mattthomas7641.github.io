@@ -39,10 +39,12 @@
 }
 :root[data-palette="green"]{--paper:#F8F9F5; --ink:#18201B; --ink-2:#39433B; --muted:#677062; --rule:#DCE2D6; --accent:#2C6A4D; --panel:#DDE8D6; --panel-rule:rgba(24,32,27,.17); --panel-muted:#525D4D}
 :root[data-palette="blue"]{--paper:#FAFAF8; --ink:#16181D; --ink-2:#3A3E47; --muted:#686D78; --rule:#E1E3E8; --accent:#2446C8; --panel:#DEE4F2; --panel-rule:rgba(22,24,29,.16); --panel-muted:#565C6A}
+:root{--gutter:24px}
+@media (max-width:480px){:root{--gutter:16px}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;color-scheme:light}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--sans);padding:0 24px 56px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--sans);padding:0 var(--gutter) 56px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
 .wrap{max-width:980px;margin:0 auto}
 a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;transition:color .15s}
 a:hover{color:var(--accent)}
@@ -52,7 +54,7 @@ p{margin:0}
 .label{font:italic 400 15px/1.3 var(--serif);color:var(--muted)}
 
 /* nav */
-.nav{border-bottom:1px solid var(--rule);margin-inline:-24px;padding-inline:24px}
+.nav{border-bottom:1px solid var(--rule);margin-inline:calc(var(--gutter)*-1);padding-inline:var(--gutter)}
 .nav .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-block:20px}
 .brand{font:500 20px/1 var(--serif);text-decoration:none}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px}
@@ -90,17 +92,44 @@ section{padding-block:72px 0;scroll-margin-top:16px}
 
 /* projects */
 #work{counter-reset:proj}
-.feature{counter-increment:proj;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:0 56px;background:var(--panel);border-radius:16px;padding:clamp(20px,4vw,44px)}
+.feature{counter-increment:proj;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:0 56px;background:var(--panel);border-radius:16px;--pad:clamp(20px,4vw,44px);padding:var(--pad)}
 .feature + .feature{margin-top:40px}
 .f-shot{grid-column:1/-1;margin:0 0 32px}
-.f-shot a{display:block;border-radius:8px;overflow:hidden;background:#fff;border:1px solid var(--panel-rule);box-shadow:0 16px 36px -18px rgba(20,36,26,.5)}
-.f-shot picture{display:block}
-.f-shot img{display:block;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;object-position:top left}
-.f-shot.wide img{aspect-ratio:auto}
-.f-shot.free a{background:none;border:0;box-shadow:none;border-radius:0}
-.f-shot.free img{aspect-ratio:auto}
+.zoom{position:relative;display:block;cursor:zoom-in;text-decoration:none;color:inherit}
+.zoom img{display:block;width:100%;height:auto}
+.zoom-tag{position:absolute;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:7px;padding:8px 13px 8px 11px;border-radius:999px;background:var(--paper);color:var(--ink);border:1px solid var(--panel-rule);font:500 13.5px/1 var(--sans);box-shadow:0 8px 18px -10px rgba(20,36,26,.6);transition:background .15s,color .15s,border-color .15s}
+.zoom-tag svg{width:14px;height:14px;flex:none}
+.zoom:hover .zoom-tag,.zoom:focus-visible .zoom-tag{background:var(--accent);color:#fff;border-color:var(--accent)}
+.f-shot.free .shot-desk .zoom-tag{top:2px;right:2px;bottom:auto}
+.f-shot.wide .shot-desk{border-radius:8px;overflow:hidden;background:#fff;border:1px solid var(--panel-rule);box-shadow:0 16px 36px -18px rgba(20,36,26,.5)}
+.screens,.swipe-hint{display:none}
 .f-shot figcaption{font:italic 400 14.5px/1.4 var(--serif);color:var(--panel-muted);padding-top:12px}
-@media (max-width:720px){.f-shot img{aspect-ratio:4/5;object-position:top center}.f-shot.wide img{aspect-ratio:1224/711}.f-shot.free a{background:#fff;border:1px solid var(--panel-rule);border-radius:8px;box-shadow:0 16px 36px -18px rgba(20,36,26,.5)}.f-shot.free img{aspect-ratio:4/5}}
+@media (max-width:720px){
+.shot-desk{display:none}
+.screens{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(var(--pad)*-1);padding:2px var(--pad) 20px;scroll-padding-inline:var(--pad)}
+.screens::-webkit-scrollbar{display:none}
+.screen{flex:0 0 92%;scroll-snap-align:start;border:6px solid #1E2420;border-radius:28px;background:#1E2420;overflow:hidden;box-shadow:0 18px 28px -18px rgba(20,36,26,.65)}
+.screen img{aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:22px;background:#fff}
+.screens.frames .screen{flex-basis:58%;border:0;border-radius:14px;background:none}
+.screens.frames .screen img{border-radius:14px}
+.screen .zoom-tag{right:10px;bottom:10px;padding:9px}
+.screen .zoom-tag span{display:none}
+.swipe-hint{display:block;font:500 13.5px/1.3 var(--sans);color:var(--accent);margin-top:-4px}
+.swipe-hint span{color:var(--panel-muted);margin-inline:3px}
+.f-shot figcaption{padding-top:6px}
+}
+
+/* enlarged image viewer */
+#viewer{border:0;padding:0;margin:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;background:var(--paper);color:var(--ink);overflow:hidden}
+#viewer::backdrop{background:var(--paper)}
+html:has(#viewer[open]){overflow:hidden}
+.v-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px;padding:0 16px;border-bottom:1px solid var(--rule)}
+.v-cap{font:italic 400 15.5px/1.3 var(--serif);color:var(--ink-2)}
+.v-close{flex:none;font:500 15px/1 var(--sans);color:var(--ink);background:none;border:1px solid var(--ink);border-radius:999px;padding:10px 16px;cursor:pointer}
+.v-close:hover{background:var(--ink);color:var(--paper)}
+.v-body{height:calc(100% - 60px);overflow:auto;padding:16px;display:grid;justify-items:center;align-items:start;cursor:zoom-out}
+.v-body img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:10px;border:1px solid var(--rule);background:#fff}
+@media (max-width:720px){.v-body img{max-height:none;width:100%;max-width:440px}}
 .f-main{display:grid;gap:16px;align-content:start}
 .kicker{display:flex;gap:4px 10px;flex-wrap:wrap;align-items:baseline;font:italic 400 16.5px/1.3 var(--serif);color:var(--panel-muted)}
 .kicker::before{content:counter(proj,decimal-leading-zero);font-weight:500;color:var(--ink);padding-right:10px;margin-right:2px;border-right:1px solid var(--panel-rule)}
@@ -220,7 +249,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
   </div>
 
   <article class="feature">
-    <figure class="f-shot free"><a href="assets/northstar.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/northstar-phone.jpg"><img src="assets/northstar.jpg" width="2000" height="1200" loading="lazy" alt="Northstar: a spending and goals dashboard on a laptop, and on a phone a question answered and marked Verified"></picture></a><figcaption>Northstar on a synthetic demo ledger: the dashboard, and a question answered with every number checked.</figcaption></figure>
+    <figure class="f-shot free"><a class="shot-desk zoom" href="assets/northstar.jpg" data-cap="Northstar on a synthetic demo ledger: the dashboard, and a question answered with every number checked."><img src="assets/northstar.jpg" width="2000" height="1200" loading="lazy" alt="Northstar: a spending and goals dashboard on a laptop, and on a phone a question answered and marked Verified"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><div class="screens" role="group" aria-label="Northstar screens"><a class="screen zoom" href="assets/northstar-m1.jpg" data-cap="A question answered, with every number checked"><img src="assets/northstar-m1.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: a spending question answered and marked Verified"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/northstar-m2.jpg" data-cap="The overview: net worth, spending and budgets"><img src="assets/northstar-m2.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: the overview with invested total and spending by category"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/northstar-m3.jpg" data-cap="The retirement plan, projected by age"><img src="assets/northstar-m3.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: a chart of invested balance by age and what it takes to reach the target"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a></div><p class="swipe-hint" aria-hidden="true">Swipe for more <span>&middot;</span> tap to enlarge</p><figcaption>Northstar on a synthetic demo ledger: the dashboard, and a question answered with every number checked.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
@@ -249,7 +278,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
   </article>
 
   <article class="feature">
-    <figure class="f-shot free"><a href="assets/sidequest.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/sidequest-phone.jpg"><img src="assets/sidequest.jpg" width="2000" height="1200" loading="lazy" alt="Sidequest: a To do list with one report open, showing a verdict and how a tool fits each project, on a laptop and a phone"></picture></a><figcaption>Sidequest with sample data: the To do list with one report open, showing how a tool fits each project.</figcaption></figure>
+    <figure class="f-shot free"><a class="shot-desk zoom" href="assets/sidequest.jpg" data-cap="Sidequest with sample data: the To do list with one report open, showing how a tool fits each project."><img src="assets/sidequest.jpg" width="2000" height="1200" loading="lazy" alt="Sidequest: a To do list with one report open, showing a verdict and how a tool fits each project, on a laptop and a phone"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><div class="screens" role="group" aria-label="Sidequest screens"><a class="screen zoom" href="assets/sidequest-m1.jpg" data-cap="The to-do list, one card per thing you sent"><img src="assets/sidequest-m1.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: the To do list with a research card and its verdict"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/sidequest-m2.jpg" data-cap="A report: how the tool fits each project"><img src="assets/sidequest-m2.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: an open report showing how a tool fits two projects"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/sidequest-m3.jpg" data-cap="The repos it checked, and its recommendation"><img src="assets/sidequest-m3.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: the repos the agent checked and its summary"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a></div><p class="swipe-hint" aria-hidden="true">Swipe for more <span>&middot;</span> tap to enlarge</p><figcaption>Sidequest with sample data: the To do list with one report open, showing how a tool fits each project.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
@@ -278,7 +307,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
   </article>
 
   <article class="feature">
-    <figure class="f-shot wide"><a href="assets/bytesize.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/bytesize-phone.jpg"><img src="assets/bytesize.jpg" width="2460" height="711" loading="lazy" alt="Six frames from one Short: an animated narrator beside a hook, a diagram, a timeline, a comparison, a checklist and a closing question"></picture></a><figcaption>Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question.</figcaption></figure>
+    <figure class="f-shot wide"><a class="shot-desk zoom" href="assets/bytesize.jpg" data-cap="Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question."><img src="assets/bytesize.jpg" width="2460" height="711" loading="lazy" alt="Six frames from one Short: an animated narrator beside a hook, a diagram, a timeline, a comparison, a checklist and a closing question"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><div class="screens frames" role="group" aria-label="Frames from one Short"><a class="screen zoom" href="assets/bytesize-m1.jpg" data-cap="Frame 1 of 6: the hook"><img src="assets/bytesize-m1.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator beside the hook headline"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/bytesize-m2.jpg" data-cap="Frame 2 of 6: a diagram"><img src="assets/bytesize-m2.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator pointing at a diagram"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/bytesize-m3.jpg" data-cap="Frame 3 of 6: a timeline"><img src="assets/bytesize-m3.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator beside a three-step timeline"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/bytesize-m4.jpg" data-cap="Frame 4 of 6: a comparison"><img src="assets/bytesize-m4.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator beside a two-column comparison"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/bytesize-m5.jpg" data-cap="Frame 5 of 6: a checklist"><img src="assets/bytesize-m5.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator beside a three-item checklist"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/bytesize-m6.jpg" data-cap="Frame 6 of 6: the closing question"><img src="assets/bytesize-m6.jpg" width="720" height="1280" loading="lazy" alt="Video frame: the narrator asking the closing question"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a></div><p class="swipe-hint" aria-hidden="true">Swipe for more <span>&middot;</span> tap to enlarge</p><figcaption>Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI content pipeline · video</span><span class="when">Sep – Nov 2026</span></div>
       <h3>Byte Sized AI News <span style="font-weight:400;opacity:.65">(Newsletter-to-Video Pipeline)</span></h3>
@@ -386,6 +415,30 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
 
 <footer><span>© 2026 Matt Thomas</span><span>Philadelphia, PA</span></footer>
 </div>
+
+<dialog id="viewer" aria-label="Enlarged image">
+  <div class="v-bar"><p class="v-cap"></p><form method="dialog"><button class="v-close">Close</button></form></div>
+  <div class="v-body"><img alt=""></div>
+</dialog>
+
+<script>
+(function(){
+  var d=document.getElementById('viewer');
+  if(!d||!d.showModal) return;
+  var img=d.querySelector('img'), cap=d.querySelector('.v-cap');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a.zoom'):null;
+    if(!a||e.metaKey||e.ctrlKey||e.shiftKey) return;
+    e.preventDefault();
+    var t=a.querySelector('img');
+    img.src=a.getAttribute('href'); img.alt=t?t.alt:'';
+    cap.textContent=a.getAttribute('data-cap')||'';
+    d.showModal();
+  });
+  d.querySelector('.v-body').addEventListener('click',function(){d.close();});
+  d.addEventListener('close',function(){img.removeAttribute('src');});
+})();
+</script>
 
 <script>
 (function(){
