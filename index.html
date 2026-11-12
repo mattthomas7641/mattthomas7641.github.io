@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://mattthomas7641.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Matt Thomas, technology consultant. Projects: Northstar, Sidequest and ByteSize News.">
+<meta property="og:image:alt" content="Matt Thomas, technology consultant. Projects: Northstar, Sidequest and Byte Sized AI News.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Matt Thomas · AI agents and automated workflows">
 <meta name="twitter:description" content="Matt Thomas is a technology consultant at Protiviti focused on enterprise integrations and security, and builds AI agents and automated workflows tested with evals.">
@@ -199,9 +199,9 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <p class="pitch">Matt is a technology consultant at Protiviti, focused on enterprise integrations and security.</p>
     <p class="pitch">Outside of client work, he builds AI agents and automated workflows:</p>
     <ul class="pitch-list">
-      <li><b>Northstar</b>, a trusted personal finance agent, connects to live bank accounts and traces every dollar amount and percentage in its answers back to the underlying transactions, rejecting any figure it can’t source before it responds.</li>
-      <li><b>Sidequest</b>, a research agent, takes anything shared with it, from a TikTok to a screenshot, researches the idea, checks it against existing projects, and turns saved content into a next step on a to-do list instead of a backlog.</li>
-      <li><b>ByteSize News</b>, an automated news pipeline running as a scheduled cloud job, picks the day’s top tech stories, writes and fact-checks the scripts, and publishes YouTube Shorts with no manual work, measuring what each finished video costs.</li>
+      <li><b>Northstar</b>, a personal finance agent, connects to live bank accounts and traces every number in its answers back to the underlying transactions.</li>
+      <li><b>Sidequest</b>, a research agent, takes anything shared with it, from a TikTok to a screenshot, and turns it into a next step on a to-do list.</li>
+      <li><b>Byte Sized AI News</b>, an automated news pipeline, picks the day’s top tech stories, writes and fact-checks the scripts, and publishes YouTube Shorts with no manual work.</li>
     </ul>
     <div class="cta">
       <a class="btn primary" href="#work">See projects</a>
@@ -232,13 +232,13 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
-      <p class="lede">A personal finance agent built to be trusted with numbers. It connects to live bank accounts through Plaid (or CSV exports), answers questions in plain English, plans for retirement across 401(k) and Roth IRA accounts, projects the path to financial independence, and builds a budget plan to get there. Every figure is checked against the underlying data before it’s shown.</p>
+      <p class="lede">A personal finance agent built to be trusted with numbers. It connects to bank accounts through Plaid or CSV exports, answers questions in plain English, and plans for retirement. Every figure is checked against the underlying data before it’s shown.</p>
       <ul>
-        <li>The agent answers by running read-only SQL and a safe calculator. A deterministic number checker rejects any answer containing a figure that didn't come from a tool result, and sends it back to be fixed.</li>
-        <li>A privacy layer scrubs names, phone numbers and account digits before anything reaches the API, with a local-only mode and a log of every character sent. Plaid tokens live in the macOS Keychain.</li>
-        <li>Retirement planning across accounts. 401(k): IRS limits with catch-up rules, the exact contribution % to max out with the paychecks left, and missed-match warnings. Roth IRA: the limit after the income phase-out, contributions auto-summed from transfers, and the monthly amount to max out before the deadline.</li>
-        <li>A retirement projection that combines every account and contribution: an FI number based on the last 12 months of actual spending, the age it’s reached, and a Coast FIRE number with progress. Savings goals and a budget plan that never trims rent or health.</li>
-        <li>Runs on a Mac and installs on a phone over Tailscale with a passcode, and still shows the last-synced numbers when the Mac is off.</li>
+        <li>The agent answers by running read-only SQL and a safe calculator. A number checker rejects any answer with a figure that didn’t come from a tool result.</li>
+        <li>A privacy layer removes names, phone numbers and account digits before anything reaches the API, and logs every character sent.</li>
+        <li>Retirement planning across 401(k) and Roth IRA accounts: contribution limits, the amount needed to max out, and missed-match warnings.</li>
+        <li>A projection of the path to financial independence, based on the last 12 months of actual spending.</li>
+        <li>Runs on a Mac and installs on a phone, and still shows the last-synced numbers when the Mac is off.</li>
       </ul>
       <p class="decision"><b>Key decision:</b> keep the model away from the arithmetic. Categorization, insights and planning are deterministic code; the LLM writes queries and explains results, and every number it states has to trace back to one.</p>
     </div>
@@ -258,15 +258,15 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
-      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent watches it, does the follow-up that usually never happens, and puts a concrete next step on a to-do list so it actually gets acted on.</p>
+      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent does the follow-up that usually never happens and puts a concrete next step on a to-do list.</p>
       <ul>
-        <li>One share button from any app. An iOS Shortcut (or a Telegram bot) takes videos from TikTok, Instagram, YouTube and X, plus screenshots, photos, articles and plain notes. If a download is blocked, it judges the item from the link instead of failing.</li>
-        <li>The most common use: a video about a new agent skill or dev tool. The agent reads the actual project code, then reports whether the tool is worth adopting, where it would plug in and what it would change, instead of a generic review.</li>
-        <li>It goes beyond repos. It vets GitHub tools against the live API (stars, last commit, license), traces AI news to its source, and turns a food video into an address, hours and the best day to go, with real prices and red flags like paid promotions.</li>
-        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification. Items stay there until they’re marked done or “not for me”.</li>
-        <li>Gemini watches the video once (audio and frames together, so it sees code and prices on screen), then runs a tool loop with Google Search grounding (and Maps for places) plus custom GitHub and project-file tools. Claude or Grok can run the same research loop.</li>
+        <li>One share button from any app. An iOS Shortcut or a Telegram bot takes videos, screenshots, links and notes.</li>
+        <li>For a video about a new dev tool, the agent reads the actual project code and reports whether the tool is worth adopting and where it would plug in.</li>
+        <li>It checks GitHub tools against the live API, traces AI news to its source, and turns a food video into an address, hours and real prices.</li>
+        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification.</li>
+        <li>Gemini watches the video once, then researches it with Google Search plus custom GitHub and project-file tools. Claude or Grok can run the same research loop.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> judge every tech find against existing projects, not in the abstract. A "10 tools you need" video becomes a short answer about which one would help this week and which ones can be ignored.</p>
+      <p class="decision"><b>Key decision:</b> judge every tech find against existing projects, not in the abstract. A “10 tools you need” video becomes a short answer about which one would help this week and which ones can be ignored.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
@@ -280,20 +280,20 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   </article>
 
   <article class="feature">
-    <figure class="f-shot wide"><a href="assets/bytesize.jpg" target="_blank" rel="noopener"><img src="assets/bytesize.jpg" width="2000" height="496" loading="lazy" alt="Frames from one rendered Short: the hook, three animated diagrams, a chart and the closing question"></a><figcaption>Frames from one rendered Short, in order: the hook, three animated diagrams, a chart and the closing question.</figcaption></figure>
+    <figure class="f-shot wide"><a href="assets/bytesize.jpg" target="_blank" rel="noopener"><img src="assets/bytesize.jpg" width="2460" height="711" loading="lazy" alt="Six frames from one Short: an animated narrator beside a hook, a diagram, a timeline, a comparison, a checklist and a closing question"></a><figcaption>Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI content pipeline · video</span><span class="when">Sep – Nov 2026</span></div>
-      <h3>ByteSize News <span style="font-weight:400;opacity:.65">(Newsletter-to-Video Pipeline)</span></h3>
-      <p class="lede">A daily pipeline that turns the TLDR tech newsletters into 40-second explainer Shorts and posts them to YouTube, now running as a scheduled Google Cloud job with no laptop involved. A decision model screens the stories, Claude writes the scripts, a verifier checks every claim against the source, and an animated narrator presents them.</p>
+      <h3>Byte Sized AI News <span style="font-weight:400;opacity:.65">(Newsletter-to-Video Pipeline)</span></h3>
+      <p class="lede">A daily pipeline that turns the TLDR tech newsletters into 40-second explainer Shorts and posts them to YouTube. It runs as a scheduled Google Cloud job: a decision model screens the stories, Claude writes the scripts, a verifier checks every claim against the source, and an animated narrator presents them.</p>
       <ul>
-        <li>Three-question story screen: Jev, a decision model from TypeSafe AI, scores every candidate on scope, on major corporate and legal news, and on whether a well-informed follower of AI would want to know it. On 595 stories from two weeks of all four editions (labelled by Claude, so a proxy for judgment), the third question raised the share of must-know stories in the writer’s shortlist from 73% to 100%. Jev costs $0.042 per million input tokens, with free output.</li>
-        <li>Claude writes each video as a scene list (a hook, why it matters, the evidence, a takeaway, a closing question), each scene with its own motion graphic: a counting number, a timeline, a versus card, a chart. Short stories are expanded from their linked article or bundled into one quick-hits video, so a story is not dropped for being short.</li>
-        <li>Accuracy gates: every spoken line must carry verbatim quotes from the story, an independent verifier checks the claims, and an editor pass reads each video as a first-time viewer. In testing it caught real errors, such as “revenue shrank” where the filing said the quarterly increase shrank, and a graphic with the two companies swapped.</li>
-        <li>Plain language: a cold-viewer check rated 21 published openings 2.9 out of 5 on average, mostly for undefined jargon and unfamiliar names. Code checks now reject question openers, fragments, jargon in the hook and dramatic words the story does not use; back-tested on those 21 openings, they flagged all 8 that scored lowest.</li>
-        <li>Runs as a Cloud Run job on a Cloud Scheduler trigger, in a container with headless Chrome, ffmpeg, an open text-to-speech model and faster-whisper for caption timing. State and secrets sit in a private bucket and Secret Manager under least-privilege service accounts; each video uploads to YouTube while the next one renders, and failures alert a phone.</li>
-        <li>Measured where the money goes: about 65% of the writer’s billed output is hidden reasoning, so a longer prompt costs more (one round of added rules raised output per video by 46%). A per-run budget cap, a cost line on every run, and a cheap Haiku-plus-code step for trimming text over its limit keep a finished video at $0.14 to $0.22.</li>
+        <li>Story selection: Jev, a decision model from TypeSafe AI, scores every story. Adding one question raised the share of must-know stories reaching the writer from 73% to 100% on a 595-story test set (labelled by Claude).</li>
+        <li>Writing: Claude writes each video as a list of scenes, each with its own motion graphic such as a counting number, a timeline or a chart.</li>
+        <li>Accuracy: every spoken line must quote the story, and an independent verifier checks the claims. In testing it caught real errors, such as a graphic with two companies swapped.</li>
+        <li>Plain language: code checks reject question openers, jargon in the hook and dramatic words the story does not use.</li>
+        <li>Cloud: a Cloud Run job on a Cloud Scheduler trigger, with secrets in Secret Manager and least-privilege service accounts. Failures alert a phone.</li>
+        <li>Cost: a per-run budget cap and a cost line on every run keep a finished video at $0.14 to $0.22.</li>
       </ul>
-      <p class="decision"><b>Key decision:</b> accuracy drops a video, polish does not. Dropping a video on any remaining editor flag threw away three accurate videos in a row ($0.55 for none), so the editor now rejects only what is wrong (an unsupported claim, a swapped graphic) and ships what is merely clunky after one rewrite.</p>
+      <p class="decision"><b>Key decision:</b> accuracy drops a video, polish does not. Dropping a video on any editor flag threw away three accurate videos in a row, so the editor now rejects only what is wrong and ships what is merely clunky after one rewrite.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
