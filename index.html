@@ -251,7 +251,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
   <article class="feature">
     <figure class="f-shot free"><a class="shot-desk zoom" href="assets/northstar.jpg" data-cap="Northstar on a synthetic demo ledger: the dashboard, and a question answered with every number checked."><img src="assets/northstar.jpg" width="2000" height="1200" loading="lazy" alt="Northstar: a spending and goals dashboard on a laptop, and on a phone a question answered and marked Verified"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><div class="screens" role="group" aria-label="Northstar screens"><a class="screen zoom" href="assets/northstar-m1.jpg" data-cap="A question answered, with every number checked"><img src="assets/northstar-m1.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: a spending question answered and marked Verified"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/northstar-m2.jpg" data-cap="The overview: net worth, spending and budgets"><img src="assets/northstar-m2.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: the overview with invested total and spending by category"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/northstar-m3.jpg" data-cap="The retirement plan, projected by age"><img src="assets/northstar-m3.jpg" width="900" height="1600" loading="lazy" alt="Northstar on a phone: a chart of invested balance by age and what it takes to reach the target"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a></div><p class="swipe-hint" aria-hidden="true">Swipe for more <span>&middot;</span> tap to enlarge</p><figcaption>Northstar on a synthetic demo ledger: the dashboard, and a question answered with every number checked.</figcaption></figure>
     <div class="f-main">
-      <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
+      <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct – Nov 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
       <p class="lede">A personal finance agent built to be trusted with numbers. It connects to bank accounts through Plaid or CSV exports, answers questions in plain English, and plans for retirement. Every figure is checked against the underlying data before it’s shown.</p>
       <details class="how">
@@ -259,8 +259,9 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
         <ul>
         <li>The agent answers by running read-only SQL and a safe calculator. A number checker rejects any answer with a figure that didn’t come from a tool result.</li>
         <li>A privacy layer removes names, phone numbers and account digits before anything reaches the API, and logs every character sent.</li>
-        <li>Retirement planning across 401(k) and Roth IRA accounts: contribution limits, the amount needed to max out, and missed-match warnings.</li>
+        <li>Retirement planning across 401(k) and Roth IRA accounts: contribution limits, missed-match warnings, and what to set aside from each paycheck.</li>
         <li>A projection of the path to financial independence, based on the last 12 months of actual spending.</li>
+        <li>A 30-day cash forecast and a subscription tracker that flags any charge after you cancel.</li>
         <li>Runs on a Mac and installs on a phone, and still shows the last-synced numbers when the Mac is off.</li>
         </ul>
       </details>
@@ -269,7 +270,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
     <aside class="f-side">
       <div class="metrics">
         <div class="metric"><b>22/22</b><span>eval questions answered correctly, every answer verified</span></div>
-        <div class="metric"><b>$0.007</b><span>per question; 96% of transactions categorized for about 2¢ per 1,000</span></div>
+        <div class="metric"><b>$0.004</b><span>per question; 96% of transactions categorized for about 2¢ per 1,000</span></div>
         <div class="metric"><b>10/10</b><span>planted hallucinated numbers caught, 0 false alarms</span></div>
       </div>
       <div class="chips"><span class="chip">Python</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Plaid</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">PWA</span><span class="chip">Playwright</span></div>
