@@ -105,6 +105,11 @@ section{padding-block:64px 8px;scroll-margin-top:64px}
 .f-shot img{display:block;width:100%;height:auto;aspect-ratio:16/6;object-fit:cover;object-position:top left}
 .f-shot.wide img{aspect-ratio:auto}
 .f-shot figcaption{font-size:12.5px;line-height:1.4;color:var(--muted);padding:8px 16px;border-top:1px solid var(--rule);background:var(--card)}
+.f-shot picture{display:block}
+@media (max-width:720px){.f-shot img{aspect-ratio:4/5;object-position:top center}.f-shot.wide img{aspect-ratio:1224/711}}
+.how summary{cursor:pointer;font-weight:600;font-size:15px;color:var(--accent);width:fit-content;padding-block:2px}
+.how summary:hover{text-decoration:underline}
+.how[open] summary{margin-bottom:10px}
 .f-main{padding:30px 32px;display:grid;gap:16px;align-content:start}
 .f-main .kicker{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .tag{font:500 11.5px/1 var(--mono);letter-spacing:.04em;padding:5px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
@@ -228,18 +233,21 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   </div>
 
   <article class="feature">
-    <figure class="f-shot"><a href="assets/northstar.jpg" target="_blank" rel="noopener"><img src="assets/northstar.jpg" width="1600" height="1125" loading="lazy" alt="Northstar answering a spending question, marked Verified, with every figure traced to the data"></a><figcaption>Northstar on its synthetic demo ledger: a question answered with every number checked. Select the image to see it in full.</figcaption></figure>
+    <figure class="f-shot"><a href="assets/northstar.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/northstar-phone.jpg"><img src="assets/northstar.jpg" width="1600" height="1125" loading="lazy" alt="Northstar answering a spending question, marked Verified, with every figure traced to the data"></picture></a><figcaption>Northstar on its synthetic demo ledger. Select the image to see it in full.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · personal finance</span><span class="when">Oct 2026</span></div>
       <h3>Northstar <span style="font-weight:400;opacity:.65">(Personal Finance Agent)</span></h3>
       <p class="lede">A personal finance agent built to be trusted with numbers. It connects to bank accounts through Plaid or CSV exports, answers questions in plain English, and plans for retirement. Every figure is checked against the underlying data before it’s shown.</p>
-      <ul>
+      <details class="how">
+        <summary>How it works</summary>
+        <ul>
         <li>The agent answers by running read-only SQL and a safe calculator. A number checker rejects any answer with a figure that didn’t come from a tool result.</li>
         <li>A privacy layer removes names, phone numbers and account digits before anything reaches the API, and logs every character sent.</li>
         <li>Retirement planning across 401(k) and Roth IRA accounts: contribution limits, the amount needed to max out, and missed-match warnings.</li>
         <li>A projection of the path to financial independence, based on the last 12 months of actual spending.</li>
         <li>Runs on a Mac and installs on a phone, and still shows the last-synced numbers when the Mac is off.</li>
-      </ul>
+        </ul>
+      </details>
       <p class="decision"><b>Key decision:</b> keep the model away from the arithmetic. Categorization, insights and planning are deterministic code; the LLM writes queries and explains results, and every number it states has to trace back to one.</p>
     </div>
     <aside class="f-side">
@@ -254,18 +262,21 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   </article>
 
   <article class="feature">
-    <figure class="f-shot"><a href="assets/sidequest.jpg" target="_blank" rel="noopener"><img src="assets/sidequest.jpg" width="1600" height="1017" loading="lazy" alt="Sidequest's To do list: researched items, each with a verdict and a next step"></a><figcaption>Sidequest's To do list: each item sent to it comes back with a verdict and a next step. Select the image to see it in full.</figcaption></figure>
+    <figure class="f-shot"><a href="assets/sidequest.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/sidequest-phone.jpg"><img src="assets/sidequest.jpg" width="1600" height="1017" loading="lazy" alt="Sidequest's To do list: researched items, each with a verdict and a next step"></picture></a><figcaption>Sidequest's To do list: each item sent to it comes back with a verdict and a next step. Select the image to see it in full.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
       <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
       <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent does the follow-up that usually never happens and puts a concrete next step on a to-do list.</p>
-      <ul>
+      <details class="how">
+        <summary>How it works</summary>
+        <ul>
         <li>One share button from any app. An iOS Shortcut or a Telegram bot takes videos, screenshots, links and notes.</li>
         <li>For a video about a new dev tool, the agent reads the actual project code and reports whether the tool is worth adopting and where it would plug in.</li>
         <li>It checks GitHub tools against the live API, traces AI news to its source, and turns a food video into an address, hours and real prices.</li>
         <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification.</li>
         <li>Gemini watches the video once, then researches it with Google Search plus custom GitHub and project-file tools. Claude or Grok can run the same research loop.</li>
-      </ul>
+        </ul>
+      </details>
       <p class="decision"><b>Key decision:</b> judge every tech find against existing projects, not in the abstract. A “10 tools you need” video becomes a short answer about which one would help this week and which ones can be ignored.</p>
     </div>
     <aside class="f-side">
@@ -280,19 +291,22 @@ footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-co
   </article>
 
   <article class="feature">
-    <figure class="f-shot wide"><a href="assets/bytesize.jpg" target="_blank" rel="noopener"><img src="assets/bytesize.jpg" width="2460" height="711" loading="lazy" alt="Six frames from one Short: an animated narrator beside a hook, a diagram, a timeline, a comparison, a checklist and a closing question"></a><figcaption>Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question.</figcaption></figure>
+    <figure class="f-shot wide"><a href="assets/bytesize.jpg" target="_blank" rel="noopener"><picture><source media="(max-width: 720px)" srcset="assets/bytesize-phone.jpg"><img src="assets/bytesize.jpg" width="2460" height="711" loading="lazy" alt="Six frames from one Short: an animated narrator beside a hook, a diagram, a timeline, a comparison, a checklist and a closing question"></picture></a><figcaption>Frames from one published Short, in order: the hook, a diagram, a timeline, a comparison, a checklist and the closing question.</figcaption></figure>
     <div class="f-main">
       <div class="kicker"><span class="tag">AI content pipeline · video</span><span class="when">Sep – Nov 2026</span></div>
       <h3>Byte Sized AI News <span style="font-weight:400;opacity:.65">(Newsletter-to-Video Pipeline)</span></h3>
       <p class="lede">A daily pipeline that turns the TLDR tech newsletters into 40-second explainer Shorts and posts them to YouTube. It runs as a scheduled Google Cloud job: a decision model screens the stories, Claude writes the scripts, a verifier checks every claim against the source, and an animated narrator presents them.</p>
-      <ul>
+      <details class="how">
+        <summary>How it works</summary>
+        <ul>
         <li>Story selection: Jev, a decision model from TypeSafe AI, scores every story. Adding one question raised the share of must-know stories reaching the writer from 73% to 100% on a 595-story test set (labelled by Claude).</li>
         <li>Writing: Claude writes each video as a list of scenes, each with its own motion graphic such as a counting number, a timeline or a chart.</li>
         <li>Accuracy: every spoken line must quote the story, and an independent verifier checks the claims. In testing it caught real errors, such as a graphic with two companies swapped.</li>
         <li>Plain language: code checks reject question openers, jargon in the hook and dramatic words the story does not use.</li>
         <li>Cloud: a Cloud Run job on a Cloud Scheduler trigger, with secrets in Secret Manager and least-privilege service accounts. Failures alert a phone.</li>
         <li>Cost: a per-run budget cap and a cost line on every run keep a finished video at $0.14 to $0.22.</li>
-      </ul>
+        </ul>
+      </details>
       <p class="decision"><b>Key decision:</b> accuracy drops a video, polish does not. Dropping a video on any editor flag threw away three accurate videos in a row, so the editor now rejects only what is wrong and ships what is merely clunky after one rewrite.</p>
     </div>
     <aside class="f-side">
