@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>I made my prompt better and it cost 57% more · Matt Thomas</title>
-<meta name="description" content="What one automated YouTube Short costs to make, why a longer prompt raised that by 57%, and why the cheaper writer is still the one running.">
+<title>Why I’m running the worse version of my product on purpose · Matt Thomas</title>
+<meta name="description" content="A small business case: what one automated YouTube Short costs to make, what a better prompt added to that, and how I decided it was not worth it yet.">
 <link rel="canonical" href="https://mattthomas7641.github.io/writing/prompt-cost/">
 <meta name="author" content="Matt Thomas">
 <meta name="theme-color" content="#F8F9F5">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Matt Thomas">
-<meta property="og:title" content="I made my prompt better and it cost 57% more">
-<meta property="og:description" content="What one automated YouTube Short costs to make, why a longer prompt raised that by 57%, and why the cheaper writer is still the one running.">
+<meta property="og:title" content="Why I’m running the worse version of my product on purpose">
+<meta property="og:description" content="A small business case: what one automated YouTube Short costs to make, what a better prompt added to that, and how I decided it was not worth it yet.">
 <meta property="og:url" content="https://mattthomas7641.github.io/writing/prompt-cost/">
 <meta property="og:image" content="https://mattthomas7641.github.io/og.png">
 <meta property="article:published_time" content="2026-11-13">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="I made my prompt better and it cost 57% more">
-<meta name="twitter:description" content="What one automated YouTube Short costs to make, why a longer prompt raised that by 57%, and why the cheaper writer is still the one running.">
+<meta name="twitter:title" content="Why I’m running the worse version of my product on purpose">
+<meta name="twitter:description" content="A small business case: what one automated YouTube Short costs to make, what a better prompt added to that, and how I decided it was not worth it yet.">
 <meta name="twitter:image" content="https://mattthomas7641.github.io/og.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -63,6 +63,67 @@ h1{font-size:clamp(36px,6.2vw,56px);line-height:1.04;letter-spacing:-.025em;marg
 .prose h2 + p{margin-top:.8em}
 .more{margin-top:56px;padding-top:18px;border-top:1px solid var(--ink);display:flex;flex-wrap:wrap;gap:8px 26px;font-size:16px;font-weight:500}
 footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* graphics */
+.fig{margin:2em 0 0;padding:24px 24px 18px;background:#fff;border:1px solid var(--rule);border-radius:8px;font-size:15px;color:var(--ink-2)}
+.fig figcaption{margin-top:16px;padding-top:12px;border-top:1px solid var(--rule);font:italic 400 15.5px/1.45 var(--serif);color:var(--muted)}
+.fig .fig-sub{margin:0 0 12px;font-size:13px;line-height:1.4;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.strong{background:var(--accent)} .soft{background:#9DB3A5}
+.flow{list-style:none;margin:0;padding:0;counter-reset:step}
+.flow li{position:relative;counter-increment:step;display:grid;grid-template-columns:28px 150px 1fr;align-items:baseline;gap:0 12px;padding:11px 0;border-top:1px solid var(--rule)}
+.flow li:first-child{border-top:0;padding-top:0}
+.flow li:last-child{padding-bottom:0}
+.flow li::before{content:counter(step);font:600 12px/1 var(--sans);color:#fff;background:var(--accent);width:22px;height:22px;border-radius:50%;display:grid;place-items:center;align-self:center}
+.flow b{font-weight:600;color:var(--ink);font-size:15.5px;line-height:1.3}
+.flow span{font-size:14.5px;line-height:1.4;color:var(--ink-2)}
+.hero{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.hero-num{font:500 56px/1 var(--serif);color:var(--ink);letter-spacing:-.02em}
+.hero-label{font-size:15px;color:var(--ink-2);max-width:280px;line-height:1.4}
+.stack{display:flex;gap:2px;height:22px}
+.seg{display:block;height:100%}
+.seg:first-child{border-radius:4px 0 0 4px} .seg:last-child{border-radius:0 4px 4px 0}
+.stack-labels{display:flex;gap:2px;margin-top:8px;font-size:14px}
+.stack-labels b{color:var(--ink);font-weight:600}
+.key{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:0}
+.rows{margin:0}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid var(--rule)}
+.rows div:first-child{border-top:0;padding-top:0}
+.rows dt{color:var(--ink);font-weight:500}
+.rows dd{margin:0;color:var(--ink-2);text-align:right}
+.bar-row,.dot-row{display:grid;grid-template-columns:118px 1fr 64px;align-items:center;gap:12px;margin:10px 0}
+.bar-label{font-size:14px;color:var(--ink-2)}
+.bar-track{display:block;height:22px}
+.bar{display:block;height:100%;border-radius:0 4px 4px 0}
+.bar-value{font:500 20px/1 var(--serif);color:var(--ink);text-align:right;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:14px;padding:5px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--rule)}
+.chip b{color:var(--ink);font-weight:600}
+.dots{display:flex;gap:6px}
+.dot{display:block;width:16px;height:16px;border-radius:50%;border:1.5px solid #9DB3A5;background:transparent}
+.dot.on{background:var(--accent);border-color:var(--accent)}
+.prio{list-style:none;margin:0;padding:0;counter-reset:p}
+.prio li{counter-increment:p;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:11px 0;border-top:1px solid var(--rule)}
+.prio li:first-child{border-top:0;padding-top:2px}
+.prio li::before{content:counter(p);font:500 22px/1 var(--serif);color:var(--accent);width:22px}
+.prio b{font-weight:600;color:var(--ink);font-size:15.5px}
+.tag{font-size:13px;padding:3px 9px;border-radius:999px;border:1px solid var(--rule)}
+.tag.minus{background:#F6EEEA;border-color:#E6D3CA;color:#7A4A3A}
+.tag.plus{background:#EAF2EC;border-color:#CFE0D4;color:var(--accent)}
+.qs{margin:0;padding:0;list-style:none;counter-reset:q}
+.qs li{counter-increment:q;display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--rule);font:400 19px/1.4 var(--serif);color:var(--ink)}
+.qs li:first-child{border-top:0;padding-top:0}
+.qs li:last-child{padding-bottom:0}
+.qs li::before{content:counter(q);color:var(--accent);font-weight:500;min-width:16px}
+@media (max-width:480px){
+  .fig{padding:18px 16px 14px}
+  .bar-row,.dot-row{grid-template-columns:88px 1fr auto;gap:10px}
+  .dot{width:10px;height:10px} .dots{gap:3px}
+  .bar-value{font-size:17px}
+  .stack-labels{flex-direction:column;gap:4px}
+  .hero-num{font-size:46px}
+  .flow li{grid-template-columns:28px 1fr}
+  .flow span{grid-column:2}
+}
 @media (max-width:560px){
   article{padding-top:44px}
   .prose p{font-size:17px}
@@ -85,37 +146,77 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
 
 <article>
   <p class="kicker"><b>Writing</b> · Byte Sized AI News</p>
-  <h1>I made my prompt better and it cost 57% more</h1>
+  <h1>Why I’m running the worse version of my product on purpose</h1>
   <p class="byline">Matt Thomas · <time datetime="2026-11-13">November 2026</time></p>
   <div class="prose">
-<p class="lede">Recently I wrote a better version of the prompt that runs my YouTube channel, tested it, and then didn’t turn it on. The reason was 8 cents a video.</p>
-<p>Some background first. I had about 20 AI newsletters in my inbox that I never actually read, so I built a YouTube channel that reads them for me. It’s called Byte Sized AI News and the entire thing runs by itself.</p>
-<p>Every day at noon a job in Google Cloud pulls about 50 stories from the TLDR newsletters. A decision model picks the ones actually worth knowing about. Claude writes a 40-second script for each one and has to quote the source for every line, and then a fact checker and an editor go over it. After that an AI voice reads it, the captions get timed to every word, it’s animated with a cartoon narrator and a graphic for each point, and it uploads itself as a Short. That’s up to 10 videos a day and I don’t touch any of them.</p>
-<p>This post is about what one of those videos costs, because that turned out to be the part of the project I understood the least going in, and it’s the reason the better prompt is still sitting there unused.</p>
-<h2>What a video costs</h2>
-<p>You’d think rendering would be the expensive part, since it’s video. It’s about 35 cents for a whole day of videos on Cloud Run, and that’s an estimate at list price because it hasn’t shown up on a bill yet. The voice is an open-source model, so there’s no bill for that either.</p>
-<p>Almost all of the money goes to Claude writing the scripts, which works out to about 14 cents per finished video. When I looked at the token counts, about 65% of the output I was being billed for was reasoning, meaning the thinking the model does before it writes anything. I never see that text and it never ends up in a video, but it costs the same as the script does.</p>
-<h2>Adding rules</h2>
-<p>The scripts were okay, but I wanted two things from them. I wanted them clearer, so someone who isn’t in tech could follow a story without getting lost. And I wanted people to actually keep watching, which on Shorts is hard. The research I did on the format says about 30 to 50% of viewers swipe away in the first three seconds.</p>
-<p>So I added rules to the prompt. Some were for clarity: explain any name the viewer might not know, keep it to one idea per sentence, don’t add drama the story doesn’t have. The rest were for engagement. The first line has to state the news with the most concrete fact up front, and it can’t be a question. The second scene has to say why the viewer should care. If the story has a catch, the script hints at it early and pays it off about three quarters of the way through. And the video ends on a question someone can answer in a word or two, instead of “like and subscribe.”</p>
-<p>The scripts came out clearer. The cost per video also went from about 14 cents to about 22.</p>
-<p>The extra cost wasn’t really the longer prompt itself. It was that the model now had more rules to think through before it wrote anything, so the output per video went up 46%, and most of that output is the reasoning I was already paying for and can’t see.</p>
-<h2>Trying to get the 8 cents back</h2>
-<p>I tried a few things here and most of them didn’t work.</p>
-<p>The first was turning down the effort setting, which controls how hard the model thinks. That cut tokens by 22%, which looked great until I checked how many drafts were passing my checks on the first try. It went from 6 out of 10 to 3 out of 10. A draft that fails gets sent back and rewritten, so I was saving money on each attempt and then paying for more attempts.</p>
-<p>The second was using Haiku, the smaller and cheaper model, to write the drafts. With thinking turned off it couldn’t count or keep track of several rules at once, and with thinking on it would just keep reasoning and never finish.</p>
-<p>I also tried slimming down the output format by making some of the fields optional, and the API refused it outright with “Schema is too complex.”</p>
-<p>The one thing that did work was pretty small. On-screen text has a character limit, and when a line runs over, something has to shorten it. That job doesn’t need the big model, so Haiku does it now, and if that fails there’s a plain code trim as a backup.</p>
-<h2>What I decided</h2>
-<p>So right now I have two versions of the writer. The old one costs about 14 cents a video. The new one, with the clarity and engagement rules, costs about 22, and it’s sitting in the main branch, tested and ready to go.</p>
-<p>The live job is still running the old one.</p>
-<p>It’s not that I can’t find out whether the new one does better. YouTube gives me a dashboard for that, and I’d bet the new rules do perform better. It’s that views aren’t my first priority right now. My first priority is keeping this thing sustainable. I pay for it myself and it runs every day, so it has to stay affordable while still putting out something I’d stand behind. For a news channel that means the news has to be reliable.</p>
-<p>And that part doesn’t change between the two writers. Both go through the same fact check, where every line has to quote the story and a second model checks every claim. So running the cheaper writer doesn’t make the videos less accurate. It makes them a little less polished, and that’s a trade I’m okay with for now.</p>
-<p>Eight cents is obviously not a lot of money. At 10 videos a day it’s around $24 a month. But it’s a 57% increase on the main cost of the project, and it would be going to the thing that’s third on my list, after reliable and affordable. So the cheaper writer runs, every run has a spending cap, and the docs say that the live job isn’t on the newest code.</p>
-<p>The next thing I want to try is the Batch API, which is half price if you can wait up to an hour or so for the results. The job runs at noon and nobody is sitting there waiting on it, so that could bring the better writer down to around what the old one costs. I haven’t tested it yet, but if it works I don’t have to choose.</p>
+<p class="lede">I made my product better, tested it, and then chose not to implement it.</p>
+<p>The reason was cost. If you run anything on an AI model, you get offered the same trade constantly: a bigger model, a longer prompt, more reasoning. Each one makes the work a little better and the bill a little bigger. Most people treat that as a question about quality. I’ve started treating it as a question about cost: what does the upgrade add per finished piece of work, and what do you get for it? Here’s how I answered it for one small decision, with the real numbers.</p>
+<h2>The product</h2>
+<p>Byte Sized AI News is a YouTube channel that runs by itself. I had about 20 AI newsletters in my inbox that I never read, so I built something to read them for me.</p>
+<p>Every day at noon a job in Google Cloud pulls about 50 stories from the TLDR newsletters, and a decision model ranks them. Only the stories that meet the criteria I set get a video, which works out to anywhere from 10 to 20 a day. Claude writes a 40-second script for each, quoting the source for every line, and a separate fact check goes over every claim. Then an AI voice reads it, a cartoon narrator presents it, and it posts as a YouTube Short.</p>
+<figure class="fig">
+  <ol class="flow">
+    <li><b>About 50 stories</b><span>pulled from the TLDR newsletters at noon</span></li>
+    <li><b>Ranked</b><span>only stories that meet my criteria go on</span></li>
+    <li><b>Script</b><span>Claude quotes the source for every line</span></li>
+    <li><b>Fact check</b><span>a separate model checks every claim</span></li>
+    <li><b>YouTube Short</b><span>voiced, animated and posted, 10 to 20 a day</span></li>
+  </ol>
+  <figcaption>How a day of videos gets made.</figcaption>
+</figure>
+<h2>What one video costs</h2>
+<p>Almost all of the cost is Claude writing the scripts, about 14 cents per finished video. Rendering is a small flat cost for the whole day, and the voice is free.</p>
+<figure class="fig">
+  <div class="hero"><span class="hero-num">14¢</span><span class="hero-label">Claude cost per finished video, the biggest cost in the project</span></div>
+  <p class="fig-sub">Where the money goes</p>
+  <dl class="rows">
+    <div><dt>Claude writing the script</dt><dd>14¢ per video</dd></div>
+    <div><dt>Rendering in Google Cloud</dt><dd>about 35¢ per day, for every video</dd></div>
+    <div><dt>AI voice</dt><dd>free, open source</dd></div>
+  </dl>
+  <figcaption>The script is the cost that grows with every video, so it's the one I watch.</figcaption>
+</figure>
+<h2>The upgrade</h2>
+<p>I wanted the scripts clearer for people outside tech, and I wanted people to keep watching. <a href="https://aibrify.com/blog/youtube-shorts-retention-curve-playbook" target="_blank" rel="noopener">One retention guide for YouTube Shorts</a> says 30% to 50% of viewers swipe away in the first three seconds.</p>
+<p>So I added rules to the prompt: explain any name the viewer might not know, open on the most concrete fact and never on a question, say why it matters in the second scene, and end on a question someone can answer in a word or two.</p>
+<p>The scripts came out clearer, and the cost per video went from about 14 cents to about 22. More rules gave the model more to think through before writing, and that thinking is billed, so output per video went up 46%.</p>
+<figure class="fig">
+  <p class="fig-sub">Claude cost per finished video</p>
+  <div class="bar-row"><span class="bar-label">Current writer</span><span class="bar-track"><span class="bar soft" style="width:63.6%"></span></span><span class="bar-value">14¢</span></div>
+  <div class="bar-row"><span class="bar-label">Better writer</span><span class="bar-track"><span class="bar strong" style="width:100.0%"></span></span><span class="bar-value">22¢</span></div>
+  <div class="chips"><span class="chip"><b>+57%</b> cost per video</span><span class="chip"><b>+46%</b> output per video</span></div>
+  <figcaption>The longer prompt gave the model more to think through, and thinking is billed.</figcaption>
+</figure>
+<p>I tried to get that back by turning down the effort setting. Tokens fell 22%, which looked like a win. But drafts passing my checks on the first try fell from 6 in 10 to 3 in 10, and a failed draft gets rewritten. I was paying less per attempt and then paying for more attempts. After that I only looked at cost per finished video.</p>
+<figure class="fig">
+  <p class="fig-sub">Drafts that passed my checks on the first try</p>
+  <div class="dot-row"><span class="bar-label">Normal effort</span><span class="dots" role="img" aria-label="6 of 10"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="bar-value">6 of 10</span></div>
+  <div class="dot-row"><span class="bar-label">Lower effort</span><span class="dots" role="img" aria-label="3 of 10"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="bar-value">3 of 10</span></div>
+  <figcaption>Lower effort used 22% fewer tokens per attempt, but twice as many drafts had to be rewritten.</figcaption>
+</figure>
+<h2>The decision</h2>
+<p>The current writer costs about 14 cents a video and the better one about 22. At 10 to 20 videos a day, that difference comes to about $24 to $48 a month. The extra 8 cents buys clearer scripts and, I’d bet, more people watching to the end.</p>
+<p>I ranked what the project needs. First, the news has to be reliable. Second, it has to stay affordable, since I pay for it myself every day. Third, it should be polished enough to reach more people. The better writer only improves polish, and it does that at the expense of affordability, which matters more.</p>
+<figure class="fig">
+  <p class="fig-sub">What I need from the project, in order</p>
+  <ol class="prio">
+    <li><b>Reliable</b></li>
+    <li><b>Affordable</b><span class="tag minus">better writer costs 57% more</span></li>
+    <li><b>Polished enough to reach more people</b><span class="tag plus">better writer helps here</span></li>
+  </ol>
+  <figcaption>The better writer improves the third by spending from the second.</figcaption>
+</figure>
+<p>So the cheaper writer runs, and every run has a spending cap. 8 cents is small, but 57% more on your main cost is a real decision at any size.</p>
 <h2>What I took from it</h2>
-<p>There are two ways to describe a project like this. One is what it does, which is the fun part to build and to talk about. The other is what one finished piece of work costs and what you get for it.</p>
-<p>Most of what I see written about AI projects only does the first one. But the second one is what decides whether the thing keeps running. For me the unit is a video and the numbers are in cents. At a company it would be an insurance claim processed or an audit finished, and there’d be a lot more zeros, but it’s the same question: is the better version worth what it costs, given what you actually need right now? If I’m ever on the other side of that conversation, the cost per finished unit is the first number I’d ask for.</p>
+<p>At a company the unit would be an insurance claim processed or an audit finished, with a lot more zeros. The questions are the same ones:</p>
+<figure class="fig">
+  <ol class="qs">
+    <li>What does one finished unit cost today?</li>
+    <li>What does the better version add, once you count the retries?</li>
+    <li>Is the thing it buys the thing you need most right now?</li>
+  </ol>
+</figure>
+<p>Cost per finished video is the number that answers all three, and right now it says to keep the cheaper version.</p>
   </div>
   <p class="more">
     <a href="https://github.com/mattthomas7641/newsletter-video-pipeline">The code on GitHub ↗</a>
