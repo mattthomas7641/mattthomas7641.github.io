@@ -150,11 +150,12 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
   <p class="byline">Matt Thomas · <time datetime="2026-11-13">November 2026</time></p>
   <div class="prose">
 <p class="lede">I made my product better, tested it, and then chose not to implement it.</p>
-<p>The reason was cost. If you run anything on an AI model, you get offered the same trade constantly: a bigger model, a longer prompt, more reasoning. Each one makes the work a little better and the bill a little bigger. Most people treat that as a question about quality. I’ve started treating it as a question about cost: what does the upgrade add per finished piece of work, and what do you get for it? Here’s how I answered it for one small decision, with the real numbers.</p>
+<p>The reason was cost. If you run anything on an AI model, you get offered the same trade constantly: a bigger model, a longer prompt, more reasoning. Each one makes the work a little better and the bill a little bigger. The question I’ve found most useful is what the upgrade adds to the cost of each finished piece of work, and whether what it buys is worth that. Here’s how I answered it for one small decision, with the real numbers.</p>
 <h2>The product</h2>
 <p>Byte Sized AI News is a YouTube channel that runs by itself. I had about 20 AI newsletters in my inbox that I never read, so I built something to read them for me.</p>
-<p>Every day at noon a job in Google Cloud pulls about 50 stories from the TLDR newsletters, and a decision model ranks them. Only the stories that meet the criteria I set get a video, which works out to anywhere from 10 to 20 a day. Claude writes a 40-second script for each, quoting the source for every line, and a separate fact check goes over every claim. Then an AI voice reads it, a cartoon narrator presents it, and it posts as a YouTube Short.</p>
+<p>Every day at noon a job in Google Cloud pulls about 50 stories from the <a href="https://tldr.tech" target="_blank" rel="noopener">TLDR newsletters</a>, and a decision model ranks them. Only the stories that meet the criteria I set get a video, which works out to anywhere from 10 to 20 a day. Claude writes a 40-second script for each, quoting the source for every line, and a separate fact check goes over every claim. Then an AI voice reads it, a cartoon narrator presents it, and it posts as a YouTube Short.</p>
 <figure class="fig">
+  <p class="fig-sub">How one video gets made</p>
   <ol class="flow">
     <li><b>About 50 stories</b><span>pulled from the TLDR newsletters at noon</span></li>
     <li><b>Ranked</b><span>only stories that meet my criteria go on</span></li>
@@ -162,7 +163,7 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
     <li><b>Fact check</b><span>a separate model checks every claim</span></li>
     <li><b>YouTube Short</b><span>voiced, animated and posted, 10 to 20 a day</span></li>
   </ol>
-  <figcaption>How a day of videos gets made.</figcaption>
+  <figcaption>Every story goes through these five steps, from the newsletter to a published YouTube Short.</figcaption>
 </figure>
 <h2>What one video costs</h2>
 <p>Almost all of the cost is Claude writing the scripts, about 14 cents per finished video. Rendering is a small flat cost for the whole day, and the voice is free.</p>
@@ -216,7 +217,7 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
     <li>Is the thing it buys the thing you need most right now?</li>
   </ol>
 </figure>
-<p>Cost per finished video is the number that answers all three, and right now it says to keep the cheaper version.</p>
+<p>For my channel, the answers are 14 cents, 8 more, and no. So the cheaper version stays.</p>
   </div>
   <p class="more">
     <a href="https://github.com/mattthomas7641/newsletter-video-pipeline">The code on GitHub ↗</a>
