@@ -150,7 +150,7 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
   <p class="byline">Matt Thomas · <time datetime="2026-11-13">November 2026</time></p>
   <div class="prose">
 <p class="lede">I made my product better, tested it, and then chose not to implement it.</p>
-<p>The reason was cost. If you run anything on an AI model, you get offered the same trade constantly: a bigger model, a longer prompt, more reasoning. Each one makes the work a little better and the bill a little bigger. The question I’ve found most useful is what the upgrade adds to the cost of each finished piece of work, and whether what it buys is worth that. Here’s how I answered it for one small decision, with the real numbers.</p>
+<p>The reason was cost. If you run anything on an AI model, you get offered the same trade constantly: a bigger model, a longer prompt, more reasoning. Each one makes the work a little better and the bill a little bigger, and it’s easy to say yes every time, because the improvement is easy to see and the cost isn’t. Saying no takes one number: what the upgrade adds to the cost of each finished piece of work. Here’s how that number played out for my own product.</p>
 <h2>The product</h2>
 <p>Byte Sized AI News is a YouTube channel that runs by itself. I had about 20 AI newsletters in my inbox that I never read, so I built something to read them for me.</p>
 <p>Every day at noon a job in Google Cloud pulls about 50 stories from the <a href="https://tldr.tech" target="_blank" rel="noopener">TLDR newsletters</a>, and a decision model ranks them. Only the stories that meet the criteria I set get a video, which works out to anywhere from 10 to 20 a day. Claude writes a 40-second script for each, quoting the source for every line, and a separate fact check goes over every claim. Then an AI voice reads it, a cartoon narrator presents it, and it posts as a YouTube Short.</p>
@@ -208,8 +208,8 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
   <figcaption>The better writer improves the third by spending from the second.</figcaption>
 </figure>
 <p>So the cheaper writer runs, and every run has a spending cap. 8 cents is small, but 57% more on your main cost is a real decision at any size.</p>
-<h2>What I took from it</h2>
-<p>At a company the unit would be an insurance claim processed or an audit finished, with a lot more zeros. The questions are the same ones:</p>
+<h2>Why this matters beyond a YouTube channel</h2>
+<p>Any company paying for an AI model to do real work faces this same decision, just with more zeros. Swap the video for an insurance claim processed or an audit finished, and the upgrade still comes down to three questions:</p>
 <figure class="fig">
   <ol class="qs">
     <li>What does one finished unit cost today?</li>
@@ -217,7 +217,6 @@ footer{max-width:980px;margin:56px auto 0;color:var(--muted);font-size:14px;disp
     <li>Is the thing it buys the thing you need most right now?</li>
   </ol>
 </figure>
-<p>For my channel, the answers are 14 cents, 8 more, and no. So the cheaper version stays.</p>
   </div>
   <p class="more">
     <a href="https://github.com/mattthomas7641/newsletter-video-pipeline">The code on GitHub ↗</a>
