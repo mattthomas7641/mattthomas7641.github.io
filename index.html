@@ -220,7 +220,7 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
     <p class="pitch">Outside of client work, he builds AI agents and automated workflows:</p>
     <ul class="pitch-list">
       <li><b>Northstar</b>, a personal finance agent, connects to live bank accounts and traces every number in its answers back to the underlying transactions.</li>
-      <li><b>Sidequest</b>, a research agent, takes anything shared with it, from a TikTok to a screenshot, and turns it into a next step on a to-do list.</li>
+      <li><b>Sidequest</b>, a personal agent, researches anything shared with it and follows through, with approval gates and evals that shaped its design.</li>
       <li><b>Byte Sized AI News</b>, an automated news pipeline, picks the day’s top tech stories, writes and fact-checks the scripts, and publishes YouTube Shorts with no manual work.</li>
     </ul>
     <div class="cta">
@@ -281,29 +281,29 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-co
   <article class="feature">
     <figure class="f-shot free"><a class="shot-desk zoom" href="assets/sidequest.jpg" data-cap="Sidequest with sample data: the To do list with one report open, showing how a tool fits each project."><img src="assets/sidequest.jpg" width="2000" height="1200" loading="lazy" alt="Sidequest: a To do list with one report open, showing a verdict and how a tool fits each project, on a laptop and a phone"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><div class="screens" role="group" aria-label="Sidequest screens"><a class="screen zoom" href="assets/sidequest-m1.jpg" data-cap="The to-do list, one card per thing you sent"><img src="assets/sidequest-m1.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: the To do list with a research card and its verdict"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/sidequest-m2.jpg" data-cap="A report: how the tool fits each project"><img src="assets/sidequest-m2.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: an open report showing how a tool fits two projects"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a><a class="screen zoom" href="assets/sidequest-m3.jpg" data-cap="The repos it checked, and its recommendation"><img src="assets/sidequest-m3.jpg" width="900" height="1600" loading="lazy" alt="Sidequest on a phone: the repos the agent checked and its summary"><span class="zoom-tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg><span>Enlarge</span></span></a></div><p class="swipe-hint" aria-hidden="true">Swipe for more <span>&middot;</span> tap to enlarge</p><figcaption>Sidequest with sample data: the To do list with one report open, showing how a tool fits each project.</figcaption></figure>
     <div class="f-main">
-      <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Oct 2026</span></div>
-      <h3>Sidequest <span style="font-weight:400;opacity:.65">(Saved Video Intelligence)</span></h3>
-      <p class="lede">Send it anything: a TikTok, an Instagram Reel, a YouTube Short, a link or a screenshot. A research agent does the follow-up that usually never happens and puts a concrete next step on a to-do list.</p>
+      <div class="kicker"><span class="tag">AI agents · research</span><span class="when">Sep – Nov 2026</span></div>
+      <h3>Sidequest</h3>
+      <p class="lede">A personal agent that acts on what I send it: a TikTok, a link, a screenshot, a question. It researches, then follows through (a calendar slot, an issue in the repo it fits, a check-back when a launch happens), and never acts outside the app without my tap.</p>
       <details class="how">
         <summary>How it works</summary>
         <ul>
-        <li>One share button from any app. An iOS Shortcut or a Telegram bot takes videos, screenshots, links and notes.</li>
-        <li>For a video about a new dev tool, the agent reads the actual project code and reports whether the tool is worth adopting and where it would plug in.</li>
-        <li>It checks GitHub tools against the live API, traces AI news to its source, and turns a food video into an address, hours and real prices.</li>
-        <li>Every result lands on a To do list with a clear next step (try it, build it, buy it, go, or skip it) and a phone notification.</li>
-        <li>Gemini watches the video once, then researches it with Google Search plus custom GitHub and project-file tools. Claude or Grok can run the same research loop.</li>
+        <li>Share from any app to a Telegram bot. Gemini watches the video, then researches with Google Search and Maps; tech finds are judged against my own repositories.</li>
+        <li>Follow-through is durable tasks: calendar slots that avoid my busy times, GitHub issues, fare watches and check-backs. Anything outward-facing waits for a tap.</li>
+        <li>Plain messages go to an assistant with tools; requests that split go to parallel read-only specialist agents and a coordinator.</li>
+        <li>Uses outside MCP servers (Kiwi.com flights, seats.aero awards) through an allowlist, and is an MCP server for Claude Code.</li>
+        <li>Every run is traced and costed in a ledger behind a daily cap.</li>
         </ul>
       </details>
-      <p class="decision"><b>Key decision:</b> judge every tech find against existing projects, not in the abstract. A “10 tools you need” video becomes a short answer about which one would help this week and which ones can be ignored.</p>
+      <p class="decision"><b>Key decision:</b> let measurement decide the architecture. A 4-agent trip planner looked like pure cost under a 1–5 grader; a head-to-head judge preferred its plans 3–1, so a planner now builds a team only when the work splits. The "10× cheaper" model lost 10 of 12 head to head, so it only runs background checks.</p>
     </div>
     <aside class="f-side">
       <div class="metrics">
         <div class="metric"><b>Any app</b><span>TikTok, Reels, Shorts, X, links or screenshots, through the share sheet</span></div>
-        <div class="metric"><b>$0.03–0.06</b><span>per video researched (less for links and screenshots), under a daily spending cap</span></div>
-        <div class="metric"><b>295</b><span>automated tests, CI on every push</span></div>
+        <div class="metric"><b>~$4</b><span>a month of daily use, from the run ledger (about 4¢ a researched video, ~1¢ a question)</span></div>
+        <div class="metric"><b>358</b><span>offline tests, CI with pip-audit and a container smoke test</span></div>
       </div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Gemini API</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Search grounding</span><span class="chip">iOS Shortcuts</span><span class="chip">Telegram Bot API</span><span class="chip">SQLModel</span><span class="chip">Docker</span></div>
-      <div class="links"><a href="https://github.com/mattthomas7641/saved-video-intelligence" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/saved-video-intelligence/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Gemini API</span><span class="chip">Claude API</span><span class="chip">Tool use</span><span class="chip">Search grounding</span><span class="chip">MCP</span><span class="chip">Multi-agent</span><span class="chip">Evals</span><span class="chip">Telegram Bot API</span><span class="chip">SQLModel</span><span class="chip">Docker</span></div>
+      <div class="links"><a href="https://github.com/mattthomas7641/sidequest" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/mattthomas7641/sidequest/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a></div>
     </aside>
   </article>
 
